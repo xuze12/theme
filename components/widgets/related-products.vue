@@ -30,7 +30,7 @@
     mapState,
     createNamespacedHelpers
   } from 'vuex'
-  import productBox1 from '../product-box/xz_product-box1'
+  import productBox1 from '../product-box/product-box1'
   import cartModel from '../cart-model/cart-modal-popup'
   import quickviewModel from './quickview'
   import compareModel from './compare-popup'

@@ -1,10 +1,6 @@
 <template>
   <div>
     <div class="img-wrapper" style="margin-botton:20px">
-      <div class="lable-block">
-        <span class="lable3" v-if="product.new">new</span>
-        <span class="lable4" v-if="product.sale">on sale</span>
-      </div>
       <div class="front" style="width:100%;height:25vh;text-align:center;">
         <nuxt-link :to="{ path: '/product/sidebar/'+product.prodId}">
           <img :src="'http://img-test.gz-yami.com/' + product.pic" :id="product.prodId" class="img-fluid bg-img"

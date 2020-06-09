@@ -2,14 +2,9 @@
   <div>
     <div class="icon-nav">
       <ul>
-        <li class="onhover-div mobile-search">
-          <div>
-            <img
-              alt
-              :src="getImgUrl('icon/layout4/search.png')"
-              @click="openSearch()"
-              class="img-fluid"
-            />
+        <li class="onhover-div mobile-search" style="display: inline-flex;align-items: center;">
+          <div style="margin-left:10px">
+            <img alt :src="getImgUrl('icon/layout4/search.png')" @click="openSearch()" class="img-fluid" />
             <i class="ti-search" @click="openSearch()"></i>
           </div>
           <div id="search-overlay" class="search-overlay" :class="{ opensearch:search }">
@@ -21,33 +16,19 @@
                     <div class="col-xl-12">
                       <form>
                         <div class="form-group mb-0">
-                          <input
-                            type="text"
-                            class="form-control"
-                            v-model="searchString"
-                            @keyup="searchProduct"
-                            placeholder="搜索产品"
-                          />
+                          <input type="text" class="form-control" v-model="searchString" @keyup="searchProduct"
+                            placeholder="搜索产品" />
                         </div>
                         <button type="submit" class="btn btn-primary">
                           <i class="fa fa-search"></i>
                         </button>
                       </form>
                       <ul class="search-results" v-if="searchProdList.length">
-                        <li
-                          v-for="(product,index) in searchProdList"
-                          :key="index"
-                          class="product-box"
-                          :style="{'padding-top':'20px'}"
-                          @click="goToProductDetail(product)"
-                        >
+                        <li v-for="(product,index) in searchProdList" :key="index" class="product-box"
+                          :style="{'padding-top':'20px'}" @click="goToProductDetail(product)">
                           <div class="img-wrapper">
-                            <img
-                              :src="'http://img-test.gz-yami.com/'+ product.pic"
-                              class="img-fluid bg-img"
-                              :style="{display:'block'}"
-                              :key="index"
-                            />
+                            <img :src="'http://img-test.gz-yami.com/'+ product.pic" class="img-fluid bg-img"
+                              :style="{display:'block'}" :key="index" />
                           </div>
                           <div class="product-detail">
                             <h6>{{ product.prodName }}</h6>
@@ -63,39 +44,12 @@
             </div>
           </div>
         </li>
-        <li class="onhover-div mobile-setting">
-          <div>
-            <img alt :src="getImgUrl('icon/layout4/setting.png')" class="img-fluid" />
-            <i class="ti-settings"></i>
-          </div>
-          <div class="show-div setting">
-            <h6>currency</h6>
-            <ul class="list-inline">
-              <li>
-                <a href="javascript:void(0)" @click="updateCurrency('eur', '€')">eur</a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" @click="updateCurrency('inr', '₹')">inr</a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" @click="updateCurrency('gbp', '£')">gbp</a>
-              </li>
-              <li>
-                <a href="javascript:void(0)" @click="updateCurrency('usd', '$')">usd</a>
-              </li>
-            </ul>
-          </div>
-        </li>
 
         <li class="onhover-div mobile-cart">
           <a @click="goToAccountCart">
-            <img
-              alt
-              :src="getImgUrl('icon/layout4/cart.png')"
-              class="img-fluid mobile-img-cart"
-            />
+            <img alt :src="getImgUrl('icon/layout4/cart.png')" class="img-fluid mobile-img-cart" />
             <i class="ti-shopping-cart"></i>
-            <span class="cart_qty_cls" >{{shopCartInfo.length}}</span>
+            <span class="cart_qty_cls">{{shopCartInfo.length}}</span>
           </a>
         </li>
       </ul>
@@ -103,85 +57,90 @@
   </div>
 </template>
 <script>
-import { mapState, mapGetters, createNamespacedHelpers } from "vuex";
-const { mapActions } = createNamespacedHelpers("shopCart");
-const s_mapActions = createNamespacedHelpers("search").mapActions;
-export default {
-  data() {
-    return {
-      currencyChange: {},
-      isLogin: false,
-      search: false,
-      searchString: ""
-    };
-  },
-  computed: {
-    ...mapState({
-      searchProdList: state => state.search.searchProdList,
-      // searchItems: state => state.products.searchProduct,
-      shopCartInfo: state => state.shopCart.shopCartInfo
-    }),
-    ...mapGetters({
-      cart: "cart/cartItems",
-      cartTotal: "cart/cartTotalAmount",
-      curr: "products/changeCurrency"
-    })
-  },
-  created() {
-    this.isLogin = localStorage.getItem("userlogin");
-  },
-  mounted() {
-    if (this.isLogin) {
-      this.getShopCart();
-    }
-  },
-  methods: {
-    ...mapActions(["getShopCart"]),
-    getImgUrl(path) {
-      return require("@/assets/images/" + path);
-    },
-    goToAccountCart() {
-      if (this.isLogin) {
-        this.$router.push("/page/account/cart");
-        return;
-      }
-      this.$toasted.show("您还没有登陆，请登陆", {
-        theme: "bubble",
-        position: "top-right",
-        duration: 2000
-      });
-      this.$router.push("/page/account/login-firebase");
-    },
-    openSearch() {
-      this.$store.dispatch("search/clearSearchProdList");
-      this.search = true;
-    },
-    closeSearch() {
-      this.search = false;
-      this.$store.dispatch("search/clearSearchProdList");
-    },
-    goToProductDetail(product) {
-      this.$store.dispatch("search/clearSearchProdList");
-      this.$router.push(`/product/sidebar/${product.prodId}`);
-    },
-    searchProduct() {
-      const that = this;
-      let timeout; // 定时器变量
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        this.$store.dispatch("search/searchProdList", this.searchString);
-      }, 300);
-    },
-    removeCartItem: function(product) {
-      this.$store.dispatch("cart/removeCartItem", product);
-    },
-    updateCurrency: function(currency, currSymbol) {
-      this.currencyChange = {
-        curr: currency,
-        symbol: currSymbol
+  import {
+    mapState,
+    mapGetters,
+    createNamespacedHelpers
+  } from "vuex";
+  const {
+    mapActions
+  } = createNamespacedHelpers("shopCart");
+  const s_mapActions = createNamespacedHelpers("search").mapActions;
+  export default {
+    data() {
+      return {
+        currencyChange: {},
+        isLogin: false,
+        search: false,
+        searchString: ""
       };
-      this.$store.dispatch("products/changeCurrency", this.currencyChange);
+    },
+    computed: {
+      ...mapState({
+        searchProdList: state => state.search.searchProdList,
+        shopCartInfo: state => state.shopCart.shopCartInfo
+      }),
+      ...mapGetters({
+        cart: "cart/cartItems",
+        cartTotal: "cart/cartTotalAmount",
+        curr: "products/changeCurrency"
+      })
+    },
+    created() {
+      this.isLogin = localStorage.getItem("userlogin");
+    },
+    mounted() {
+      if (this.isLogin) {
+        this.getShopCart();
+      }
+    },
+    methods: {
+      ...mapActions(["getShopCart"]),
+      getImgUrl(path) {
+        return require("@/assets/images/" + path);
+      },
+      goToAccountCart() {
+        if (this.isLogin) {
+          this.$router.push("/page/account/cart");
+          return;
+        }
+        this.$toasted.show("您还没有登陆，请登陆", {
+          theme: "bubble",
+          position: "top-right",
+          duration: 2000
+        });
+        this.$router.push("/page/account/login-firebase");
+      },
+      openSearch() {
+        this.$store.dispatch("search/clearSearchProdList");
+        this.search = true;
+      },
+      closeSearch() {
+        this.search = false;
+        this.$store.dispatch("search/clearSearchProdList");
+      },
+      goToProductDetail(product) {
+        this.$store.dispatch("search/clearSearchProdList");
+        this.$router.push(`/product/sidebar/${product.prodId}`);
+      },
+      searchProduct() {
+        const that = this;
+        let timeout; // 定时器变量
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          this.$store.dispatch("search/searchProdList", this.searchString);
+        }, 300);
+      },
+      removeCartItem: function (product) {
+        this.$store.dispatch("cart/removeCartItem", product);
+      },
+      updateCurrency: function (currency, currSymbol) {
+        this.currencyChange = {
+          curr: currency,
+          symbol: currSymbol
+        };
+        this.$store.dispatch("products/changeCurrency", this.currencyChange);
+      }
     }
-  }
-};
+  };
 </script>

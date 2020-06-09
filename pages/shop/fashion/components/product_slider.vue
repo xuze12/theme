@@ -40,7 +40,7 @@
 </template>
 
 <script>
-  import productBox1 from "../../../../components/product-box/xz_product-box1";
+  import productBox1 from "../../../../components/product-box/product-box1";
 
   export default {
     props: ["products", "title"],

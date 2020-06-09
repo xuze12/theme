@@ -10,7 +10,7 @@
       <!-- Sample menu definition -->
       <ul id="sub-menu" class="sidebar-menu">
         <li v-for="(item, index) in categoryList" :key="index">
-          <nuxt-link :to="{ path: `/collection/xz_leftsidebar/${item.categoryId}`}">{{item.categoryName}}</nuxt-link>
+          <nuxt-link :to="{ path: `/collection/leftsidebar/${item.categoryId}`}">{{item.categoryName}}</nuxt-link>
         </li>
       </ul>
     </nav>
@@ -18,33 +18,38 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-const { mapState, mapActions } = createNamespacedHelpers("xz_home");
-export default {
-  props: ["leftSidebarVal"],
-  data() {
-    return {
-      activeItem: "clothing"
-    };
-  },
-  computed: {
-    ...mapState(["categoryList"])
-  },
-  methods: {
-    closeLeftBar(val) {
-      val = false;
-      this.$emit("closeVal", val);
+  import {
+    createNamespacedHelpers
+  } from "vuex";
+  const {
+    mapState,
+    mapActions
+  } = createNamespacedHelpers("xz_home");
+  export default {
+    props: ["leftSidebarVal"],
+    data() {
+      return {
+        activeItem: "clothing"
+      };
     },
-    isActive: function(menuItem) {
-      return this.activeItem === menuItem;
+    computed: {
+      ...mapState(["categoryList"])
     },
-    setActive: function(menuItem) {
-      if (this.activeItem === menuItem) {
-        this.activeItem = "";
-      } else {
-        this.activeItem = menuItem;
+    methods: {
+      closeLeftBar(val) {
+        val = false;
+        this.$emit("closeVal", val);
+      },
+      isActive: function (menuItem) {
+        return this.activeItem === menuItem;
+      },
+      setActive: function (menuItem) {
+        if (this.activeItem === menuItem) {
+          this.activeItem = "";
+        } else {
+          this.activeItem = menuItem;
+        }
       }
     }
-  }
-};
+  };
 </script>

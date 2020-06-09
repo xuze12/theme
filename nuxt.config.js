@@ -1,4 +1,3 @@
-
 export default {
   mode: "spa",
   subdirectory: "/",
@@ -6,7 +5,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: "亚米科技mall4j",
+    title: "商城",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -28,7 +27,7 @@ export default {
 
   router: {
     base: "/",
-    mode:'hash'
+    mode: "hash",
   },
   /*
    ** Customize the progress-bar color
