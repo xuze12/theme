@@ -31,7 +31,7 @@
                   <div class="demo-text">
                     <h4>Fashion</h4>
                     <div class="btn-group demo-btn" role="group" aria-label="Basic example">
-                      <nuxt-link :to="{ path: '/shop/xz_fashion' }" class="btn new-tab-btn" target="_blank">Preview
+                      <nuxt-link :to="{ path: '/shop/fashion' }" class="btn new-tab-btn" target="_blank">Preview
                       </nuxt-link>
                     </div>
                   </div>

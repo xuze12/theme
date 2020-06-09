@@ -1,80 +1,78 @@
 <template>
   <div>
     <Header />
-    <Breadcrumbs title="wishlist" />
     <section class="wishlist-section section-b-space">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <table class="table cart-table table-responsive-xs" v-if="wishlist.length">
+            <table class="table cart-table table-responsive-xs" v-if="!userCollection.length">
               <thead>
                 <tr class="table-head">
-                  <th scope="col">image</th>
-                  <th scope="col">product name</th>
-                  <th scope="col">price</th>
-                  <th scope="col">availability</th>
-                  <th scope="col">action</th>
+                  <th scope="col">图片</th>
+                  <th scope="col">产品名称</th>
+                  <th scope="col">价格</th>
+                  <th scope="col">库存</th>
+                  <th scope="col">删除/购买</th>
                 </tr>
               </thead>
-              <tbody v-for="(item,index) in wishlist" :key="index">
+              <tbody v-for="(item,index) in userCollection.records" :key="index">
                 <tr>
                   <td>
-                    <a href="#">
-                      <img :src='getImgUrl(item.images[0].src)' alt="">
-                    </a>
+                    <nuxt-link :to="{ path: '/product/sidebar/'+item.prodId}">
+                      <img :src="'http://img-test.gz-yami.com/'+item.pic" :alt="item.brief">
+                    </nuxt-link>
                   </td>
                   <td>
-                    <a href="#">{{item.title}}</a>
+                    <nuxt-link :to="{ path: '/product/sidebar/'+item.prodId}">
+                      <a href="#">{{item.prodName}}</a>
+                    </nuxt-link>
                     <div class="mobile-cart-content row">
-                      <div class="col-xs-3">
-                        <p>in stock</p>
+                      <div>
+                        <h2>￥{{ item.price }} </h2>
                       </div>
-                      <div class="col-xs-3">
-                        <h2 class="td-color">{{ item.price * curr.curr | currency(curr.symbol) }}</h2>
+                      <div style="margin-top:5px">
+                        <a href="javascript:void(0)" class="icon mr-3" @click="removeWishlistItem(item)">
+                          <i class="ti-close"></i>
+                        </a>
                       </div>
-                      <div class="col-xs-3">
-                        <h2 class="td-color">
-                          <a href="#" class="icon mr-1">
-                            <i class="ti-close" @click="removeWishlistItem(item)"></i>
-                          </a>
-                          <a href="#" class="cart">
-                            <i class="ti-shopping-cart" @click="addToCart(item)"></i>
-                          </a>
-                        </h2>
+                      <div style="margin-top:5px">
+                        <nuxt-link :to="{ path: '/product/sidebar/'+item.prodId}">
+                          <i class="ti-shopping-cart" @click="addToCart(item)"></i>
+                        </nuxt-link>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <h2>{{ item.price * curr.curr | currency(curr.symbol) }}</h2>
+                    <h2>{{ item.price }}</h2>
                   </td>
                   <td>
-                    <p>in stock</p>
+                    <p>{{ item.totalStocks || "0" }}</p>
                   </td>
                   <td>
                     <a href="javascript:void(0)" class="icon mr-3" @click="removeWishlistItem(item)">
                       <i class="ti-close"></i>
                     </a>
-                    <a href="javascript:void(0)" class="cart" @click="addToCart(item)">
-                      <i class="ti-shopping-cart"></i>
-                    </a>
+                    <nuxt-link :to="{ path: '/product/sidebar/'+item.prodId}">
+                      <i class="ti-shopping-cart" @click="addToCart(item)"></i>
+                    </nuxt-link>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <div class="row wishlist-buttons" v-if="wishlist.length">
+        <div class="row wishlist-buttons" v-if="userCollection.length">
           <div class="col-12">
             <nuxt-link :to="{ path: '/'}" :class="'btn btn-solid'">continue shopping</nuxt-link>
           </div>
         </div>
-        <div class="col-sm-12 empty-cart-cls text-center" v-if="!wishlist.length">
+        <div class="col-sm-12 empty-cart-cls text-center" v-if="userCollection.length">
           <img :src='"@/assets/images/empty-wishlist.png"' class="img-fluid" alt="empty cart" />
           <h3 class="mt-3">
-            <strong>Your Wishlist is Empty</strong>
+            <strong>你的愿望单是空的</strong>
           </h3>
           <div class="col-12">
-            <nuxt-link :to="{ path: '/'}" class="btn btn-solid">continue shopping</nuxt-link>
+            <nuxt-link :to="{ path: '/'}" class="btn btn-solid">继续购物</nuxt-link>
           </div>
         </div>
       </div>
@@ -84,32 +82,46 @@
 </template>
 <script>
   import {
-    mapGetters
+    mapState,
+    mapGetters,
+    createNamespacedHelpers
   } from 'vuex'
-  import Header from '../../../components/header/xz_header1'
-  import Footer from '../../../components/footer/footer1'
-  import Breadcrumbs from '../../../components/widgets/breadcrumbs'
+  import Header from '../../../components/header/header'
+  import Footer from '../../../components/footer/footer'
+
+  const {
+    mapActions
+  } = createNamespacedHelpers("hlh_commodity")
   export default {
     components: {
       Header,
       Footer,
-      Breadcrumbs
     },
     computed: {
+      ...mapState({
+        userCollection: (state) => state.hlh_commodity.userCollection,
+      }),
       ...mapGetters({
         wishlist: 'products/wishlistItems',
         curr: 'products/changeCurrency'
       })
     },
+    mounted() {
+      this.getUserCollection()
+    },
     methods: {
+      ...mapActions(["getUserCollection", "addOrCancel"]),
       getImgUrl(path) {
         return require('@/assets/images/' + path)
       },
-      removeWishlistItem: function (product) {
-        this.$store.dispatch('products/removeWishlistItem', product)
+      removeWishlistItem: function (item) {
+        console.log("删除收藏")
+        this.addOrCancel(item)
+        // this.$store.dispatch('products/removeWishlistItem', product)
       },
       addToCart: function (product) {
-        this.$store.dispatch('cart/addToCart', product)
+        console.log("加入购物车")
+        // this.$store.dispatch('cart/addToCart', product)
       }
     }
   }

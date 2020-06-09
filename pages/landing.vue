@@ -235,7 +235,7 @@
                             <div>
                                 <div class="row">
                                     <div class="col-xl-3 col-sm-6 col-12 demo-box">
-                                        <nuxt-link :to="{ path: '/shop/xz_fashion' }" target="_blank">
+                                        <nuxt-link :to="{ path: '/shop/fashion' }" target="_blank">
                                             <img src="../assets/images/landing-page/special features/1.jpg"
                                                 class="img-fluid ">
                                         </nuxt-link>

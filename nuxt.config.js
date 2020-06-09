@@ -28,6 +28,7 @@ export default {
 
   router: {
     base: "/",
+    mode:'hash'
   },
   /*
    ** Customize the progress-bar color

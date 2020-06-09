@@ -5,7 +5,7 @@
 </template>
 
 <script>
-const Fashion = () => import('./shop/xz_fashion')
+const Fashion = () => import('./shop/fashion')
 export default {
   components: {
     Fashion

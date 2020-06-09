@@ -210,10 +210,10 @@
 <script>
 import { mapGetters, mapState, createNamespacedHelpers } from "vuex";
 import productBox1 from "../../../components/product-box/xz_product-box1";
-import Header from "../../../components/header/xz_header1";
-import Footer from "../../../components/footer/hlh_footer1";
+import Header from "../../../components/header/header";
+import Footer from "../../../components/footer/footer";
 import Breadcrumbs from "../../../components/widgets/breadcrumbs";
-import sidebar from "../../../components/widgets/hlh_collection-sidebar";
+import sidebar from "../../../components/widgets/collection-sidebar";
 import quickviewModel from "../../../components/widgets/quickview";
 import compareModel from "../../../components/widgets/compare-popup";
 import cartModel from "../../../components/cart-model/cart-modal-popup";

@@ -27,8 +27,8 @@
 </template>
 <script>
 import { mapState, createNamespacedHelpers } from "vuex";
-import Header from "../../../components/header/xz_header1";
-import Footer from "../../../components/footer/hlh_footer1";
+import Header from "../../../components/header/header";
+import Footer from "../../../components/footer/footer";
 
 import Slider from "./components/slider";
 import CollectionBanner from "./components/collection_banner";
@@ -36,7 +36,7 @@ import ProductSlider from "./components/product_slider";
 import Banner from "./components/banner";
 import ProductTab from "./components/product_tab";
 import Services from "./components/services";
-import Notice from "./components/hlh_notice";
+import Notice from "./components/notice";
 import Instagram from "./components/instagram";
 import LogoSlider from "./components/logo_slider";
 

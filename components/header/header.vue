@@ -17,7 +17,7 @@
                   <LeftSidebar :leftSidebarVal="leftSidebarVal" @closeVal="closeBarValFromChild" />
                 </div> -->
                 <div class="brand-logo">
-                  <nuxt-link :to="{ path: '/shop/xz_fashion'}">
+                  <nuxt-link :to="{ path: '/shop/fashion'}">
                    <img :src='"@/assets/images/icon/logo.png"' class="img-fluid" alt />
                   </nuxt-link>
                 </div>
@@ -35,8 +35,8 @@
 </template>
 <script>
 import TopBar from "../widgets/topbar";
-import LeftSidebar from "../widgets/xz_left-sidebar";
-import Nav from "../widgets/xz_navbar";
+import LeftSidebar from "../widgets/left-sidebar";
+import Nav from "../widgets/navbar";
 import HeaderWidgets from "../widgets/header-widgets";
 
 export default {

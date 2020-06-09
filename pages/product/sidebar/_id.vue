@@ -156,7 +156,7 @@
                           @click="newaddToCart(prodInfo, counter)"
                           :disabled=" totalStocks === 0"
                         >加入购物车</button>
-                        <nuxt-link :to="{ path: '/page/account/hlh_purchase' }">
+                        <nuxt-link :to="{ path: '/page/account/purchase' }">
                           <button
                             class="btn btn-solid"
                             title="立即购买"
@@ -298,12 +298,12 @@
 <script>
 import Vue from "vue";
 import { mapState, mapGetters, createNamespacedHelpers } from "vuex";
-import Header from "../../../components/header/xz_header1";
-import Footer from "../../../components/footer/hlh_footer1";
+import Header from "../../../components/header/header";
+import Footer from "../../../components/footer/footer";
 import Breadcrumbs from "../../../components/widgets/breadcrumbs";
 import Timer from "../../../components/widgets/timer";
-// import productSidebar from "../../../components/widgets/hlh_product-sidebar";
-import sidebar from "../../../components/widgets/hlh_collection-sidebar";
+
+import sidebar from "../../../components/widgets/collection-sidebar";
 import relatedProduct from "../../../components/widgets/related-products";
 
 const c_mapActions = createNamespacedHelpers("hlh_commodity").mapActions;

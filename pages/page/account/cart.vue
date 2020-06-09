@@ -120,7 +120,7 @@
             <nuxt-link :to="{ path: '/'}" :class="'btn btn-solid'">继续购物</nuxt-link>
           </div>
           <div class="col-6">
-            <nuxt-link :to="{ path: '/page/account/hlh_purchase'}" :class="'btn btn-solid'">购买</nuxt-link>
+            <nuxt-link :to="{ path: '/page/account/purchase'}" :class="'btn btn-solid'">购买</nuxt-link>
           </div>
         </div>
       </div>
@@ -134,8 +134,8 @@
     mapGetters,
     createNamespacedHelpers
   } from "vuex";
-  import Header from "../../../components/header/xz_header1";
-  import Footer from "../../../components/footer/hlh_footer1";
+  import Header from "../../../components/header/header";
+  import Footer from "../../../components/footer/footer";
   import Breadcrumbs from "../../../components/widgets/breadcrumbs";
   const {
     mapActions

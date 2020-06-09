@@ -5,7 +5,7 @@
         <div class="col-lg-6">
           <div class="header-contact">
             <ul>
-              <li>Welcome to 亚米科技mall4j</li>
+              <li>Welcome to 商城</li>
               <li>
                 <i class="fa fa-phone" aria-hidden="true"></i>致电我们: 123 - 456 - 7890
               </li>
@@ -15,7 +15,7 @@
         <div class="col-lg-6 text-right">
           <ul class="header-dropdown">
             <li class="mobile-wishlist">
-              <nuxt-link :to="{ path: '/page/account/hlh_wishlist' }">
+              <nuxt-link :to="{ path: '/page/account/wishlist' }">
                 <i class="fa fa-heart" aria-hidden="true"></i>
               </nuxt-link>
             </li>
@@ -27,7 +27,7 @@
                   <nuxt-link v-if="!isLogin" :to="{ path: '/page/account/login-firebase' }">登录</nuxt-link>
                 </li>
                 <li>
-                  <nuxt-link :to="{ path: '/page/account/hlh_dashboard' }">我的帐户</nuxt-link>
+                  <nuxt-link :to="{ path: '/page/account/dashboard' }">我的帐户</nuxt-link>
                 </li>
               </ul>
             </li>

@@ -142,7 +142,7 @@ export default {
     },
     goToAccountCart() {
       if (this.isLogin) {
-        this.$router.push("/page/account/hlh_cart");
+        this.$router.push("/page/account/cart");
         return;
       }
       this.$toasted.show("您还没有登陆，请登陆", {

@@ -62,8 +62,8 @@
     ValidationProvider,
     ValidationObserver
   } from 'vee-validate/dist/vee-validate.full.esm'
-  import Header from '../../../components/header/xz_header1'
-  import Footer from '../../../components/footer/footer1'
+  import Header from '../../../components/header/header'
+  import Footer from '../../../components/footer/footer'
   import Breadcrumbs from '../../../components/widgets/breadcrumbs'
   export default {
     components: {

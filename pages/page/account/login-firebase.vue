@@ -46,8 +46,8 @@
 </template>
 <script>
   import firebase from "firebase";
-  import Header from "../../../components/header/xz_header1";
-  import Footer from "../../../components/footer/footer1";
+  import Header from "../../../components/header/header";
+  import Footer from "../../../components/footer/footer";
   import Breadcrumbs from "../../../components/widgets/breadcrumbs";
   import Userauth from "./auth/auth";
   import {
@@ -114,7 +114,7 @@
               return;
             }
             Userauth.localLogin(data);
-            this.$router.replace("/shop/xz_fashion");
+            this.$router.replace("/shop/fashion");
             // this.$router.replace("/page/account/checkout");
           } catch (error) {}
 

@@ -15,7 +15,7 @@ import layoutSetting from '../components/widgets/layout-setting'
 export default {
   head() {
     return {
-      title: '亚米科技mall4j'
+      title: '商城'
     }
   },
   components: {
