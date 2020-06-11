@@ -26,7 +26,7 @@
                         <div v-swiper:mySwiper1="swiperOption1">
                           <div class="swiper-wrapper">
                             <div class="swiper-slide" v-for="(item, index) in (prodInfo.imgs || '').split(',')"
-                              :key="index">
+                              :key="index" style="width: 50%;">
                               <img :src="'http://img-test.gz-yami.com/' + item" :id="prodInfo.shopId"
                                 class="img-fluid bg-img" :alt="prodInfo.brief" @click="slideTo(index)" />
                             </div>
@@ -190,76 +190,7 @@
                     </b-card-text>
                   </div>
 
-                  <div class="col-sm-12 col-lg-12">
 
-                    <b-tabs card>
-                      <b-tab title="描述" active>
-                        <p>品名: {{ prodInfo.prodName }}</p>
-                        <p>描述: {{ prodInfo.brief }}</p>
-                      </b-tab>
-                      <b-tab class="goods_details" title="细节">
-                        <!-- <b-card-text>
-                          <div
-                            class="blog-content"
-                            v-html="prodInfo.content"
-                            style="overflow: auto;"
-                          ></div>
-                        </b-card-text>-->
-
-                        <div v-html="prodInfo.content"></div>
-                      </b-tab>
-                      <b-tab title="视频">
-                        <b-card-text>
-                          <!--<div class="mt-3 text-center">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8"
-                              allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                          </div>-->
-                        </b-card-text>
-                      </b-tab>
-                      <b-tab title="评论">
-                        <b-card-text>
-                          <form class="theme-form">
-                            <div class="form-row">
-                              <div class="col-md-12">
-                                <div class="media">
-                                  <label>评级</label>
-                                  <div class="media-body ml-3">
-                                    <div class="rating three-star">
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <label for="name">姓名</label>
-                                <input type="text" class="form-control" id="name" placeholder="输入您的姓名" required />
-                              </div>
-                              <div class="col-md-6">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="输入您的Email" required />
-                              </div>
-                              <div class="col-md-12">
-                                <label for="review">标题</label>
-                                <input type="text" class="form-control" id="review" placeholder="请输入您的标题" required />
-                              </div>
-                              <div class="col-md-12">
-                                <label for="review">内容</label>
-                                <textarea class="form-control" placeholder="请输入您的内容" id="exampleFormControlTextarea1"
-                                  rows="6"></textarea>
-                              </div>
-                              <div class="col-md-12">
-                                <button class="btn btn-solid" type="submit">提交您的评论</button>
-                              </div>
-                            </div>
-                          </form>
-                        </b-card-text>
-                      </b-tab>
-                    </b-tabs>
-                  </div>
                 </div>
               </section>
             </div>

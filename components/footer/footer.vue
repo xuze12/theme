@@ -8,7 +8,7 @@
 
               <div class="footer-contant">
                 <div class="footer-logo">
-                  <img :src='"@/assets/images/icon/logo.png"' alt="logo" />
+                  <img :src='"@/assets/images/icon/logo.png"' alt="logo" width="30rem" />
                 </div>
 
               </div>

@@ -2,45 +2,51 @@
   <div>
     <div class="icon-nav">
       <ul>
-        <li class="onhover-div mobile-search" style="display: inline-flex;align-items: center;">
-          <div style="margin-left:10px">
+        <li class="onhover-div mobile-search">
+          <div class="overlay-content">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-12">
+                  <form style="display: inline-flex;align-items: center;">
+                    <div class="form-group mb-0">
+                      <input type="text" class="form-control" v-model="searchString" @keyup="searchProduct"
+                        placeholder="搜索产品" />
+                    </div>
+                    <div style="margin-left:10px">
+                      <img alt :src="getImgUrl('icon/layout4/search.png')" @click="openSearch()" class="img-fluid" />
+                      <i class="ti-search" @click="openSearch()"></i>
+                    </div>
+                    <!--<button type="submit" class="btn btn-primary">
+                      <i class="fa fa-search"></i>
+                    </button>-->
+                  </form>
+                  <ul class="search-results" v-if="searchProdList.length" style="position:absolute">
+                    <li v-for="(product,index) in searchProdList" :key="index" class="product-box"
+                      :style="{'padding-top':'20px', 'width' : '20vw', 'background': '#fff', 'display': 'inline-flex'}"
+                      @click="goToProductDetail(product)">
+                      <div class="img-wrapper" style="width:20%">
+                        <img :src="'http://img-test.gz-yami.com/'+ product.pic" class="img-fluid bg-img"
+                          :style="{display:'block'}" :key="index" />
+                      </div>
+                      <div class="product-detail">
+                        <h6>{{ product.prodName }}</h6>
+
+                        <h4>{{ product.price }}</h4>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div style="margin-left:10px">
             <img alt :src="getImgUrl('icon/layout4/search.png')" @click="openSearch()" class="img-fluid" />
             <i class="ti-search" @click="openSearch()"></i>
-          </div>
+          </div>-->
           <div id="search-overlay" class="search-overlay" :class="{ opensearch:search }">
             <div>
               <span class="closebtn" @click="closeSearch()" title="Close Overlay">×</span>
-              <div class="overlay-content">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-xl-12">
-                      <form>
-                        <div class="form-group mb-0">
-                          <input type="text" class="form-control" v-model="searchString" @keyup="searchProduct"
-                            placeholder="搜索产品" />
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                          <i class="fa fa-search"></i>
-                        </button>
-                      </form>
-                      <ul class="search-results" v-if="searchProdList.length">
-                        <li v-for="(product,index) in searchProdList" :key="index" class="product-box"
-                          :style="{'padding-top':'20px'}" @click="goToProductDetail(product)">
-                          <div class="img-wrapper">
-                            <img :src="'http://img-test.gz-yami.com/'+ product.pic" class="img-fluid bg-img"
-                              :style="{display:'block'}" :key="index" />
-                          </div>
-                          <div class="product-detail">
-                            <h6>{{ product.prodName }}</h6>
 
-                            <h4>{{ product.price }}</h4>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </li>

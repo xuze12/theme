@@ -65,8 +65,6 @@
                               <div class="product-page-filter">
                                 <select @change="onChangeSort($event)">
                                   <option value="all">排序</option>
-                                  <option value="a-z">按字母排序, A-Z</option>
-                                  <option value="z-a">按字母排序, Z-A</option>
                                   <option value="low">价格从低到高</option>
                                   <option value="high">价格从高到低</option>
                                 </select>
@@ -233,12 +231,16 @@
       this.getProdByTagIdList(this.$route.params.id);
     },
     methods: {
-      ...mapActions(["getProdByTagIdList", "getProdByTagId", "pageSizeChange"]),
+      ...mapActions(["getProdByTagIdList", "getProdByTagId", "pageSizeChange", "priceSorting"]),
       getImgUrl(path) {
         return require("@/assets/images/" + path);
       },
       onChangeSort(event) {
-        this.$store.dispatch("filter/sortProducts", event.target.value);
+        console.log(event.target.value, "onChangeSortonChangeSort");
+        this.priceSorting(event.target.value)
+        // const ac = this.$store.dispatch("filter/sortProducts", event.target.value);
+        // console.log(ac, "ac");
+
       },
       gridView() {
         this.col4 = true;
