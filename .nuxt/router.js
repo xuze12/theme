@@ -15,10 +15,12 @@ const _b8bd5e0e = () => interopDefault(import('../pages/utils/api.js' /* webpack
 const _1caefa64 = () => interopDefault(import('../pages/utils/request.js' /* webpackChunkName: "pages/utils/request" */))
 const _c17f589c = () => interopDefault(import('../pages/blog/widgets/blog-list.vue' /* webpackChunkName: "pages/blog/widgets/blog-list" */))
 const _25853ef8 = () => interopDefault(import('../pages/blog/widgets/blog-sidebar.vue' /* webpackChunkName: "pages/blog/widgets/blog-sidebar" */))
+const _2e2c5b68 = () => interopDefault(import('../pages/page/account/address.vue' /* webpackChunkName: "pages/page/account/address" */))
 const _1bde445c = () => interopDefault(import('../pages/page/account/cart.vue' /* webpackChunkName: "pages/page/account/cart" */))
 const _3d24bcfc = () => interopDefault(import('../pages/page/account/checkout.vue' /* webpackChunkName: "pages/page/account/checkout" */))
 const _fa9824d8 = () => interopDefault(import('../pages/page/account/contact.vue' /* webpackChunkName: "pages/page/account/contact" */))
 const _d42dd9f0 = () => interopDefault(import('../pages/page/account/dashboard.vue' /* webpackChunkName: "pages/page/account/dashboard" */))
+const _b8288322 = () => interopDefault(import('../pages/page/account/forget-password.vue' /* webpackChunkName: "pages/page/account/forget-password" */))
 const _21441946 = () => interopDefault(import('../pages/page/account/login.vue' /* webpackChunkName: "pages/page/account/login" */))
 const _cbed8ab2 = () => interopDefault(import('../pages/page/account/login-firebase.vue' /* webpackChunkName: "pages/page/account/login-firebase" */))
 const _1c5303bd = () => interopDefault(import('../pages/page/account/purchase.vue' /* webpackChunkName: "pages/page/account/purchase" */))
@@ -104,6 +106,10 @@ export const routerOptions = {
     component: _25853ef8,
     name: "blog-widgets-blog-sidebar"
   }, {
+    path: "/page/account/address",
+    component: _2e2c5b68,
+    name: "page-account-address"
+  }, {
     path: "/page/account/cart",
     component: _1bde445c,
     name: "page-account-cart"
@@ -119,6 +125,10 @@ export const routerOptions = {
     path: "/page/account/dashboard",
     component: _d42dd9f0,
     name: "page-account-dashboard"
+  }, {
+    path: "/page/account/forget-password",
+    component: _b8288322,
+    name: "page-account-forget-password"
   }, {
     path: "/page/account/login",
     component: _21441946,

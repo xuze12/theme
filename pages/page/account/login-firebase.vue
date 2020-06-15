@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header />
-    <Breadcrumbs />
     <section class="login-page section-b-space">
       <div class="container">
         <div class="row">
@@ -25,6 +24,9 @@
                     placeholder="Enter your password" required />
                 </div>
                 <a class="btn-solid btn" href="javascript:void(0)" @click="signUp">登录</a>
+                <nuxt-link :to="{ path: '/page/account/forget-password' }">
+                  <a class="btn-solid btn">忘记密码</a>
+                </nuxt-link>
 
                 <!-- Social Media -->
               </form>
@@ -35,7 +37,9 @@
             <div class="theme-card authentication-right">
               <h6 class="title-font">创建帐户</h6>
               <p>在我们商店注册一个免费帐户。注册既快又容易。它允许您从我们的商店订购。要开始购物，请单击“注册”</p>
-              <a href="/page/account/register" class="btn btn-solid">创建帐户</a>
+              <nuxt-link :to="{ path: '/page/account/register' }">
+                <a class="btn-solid btn">创建帐户</a>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -48,7 +52,6 @@
   import firebase from "firebase";
   import Header from "../../../components/header/header";
   import Footer from "../../../components/footer/footer";
-  import Breadcrumbs from "../../../components/widgets/breadcrumbs";
   import Userauth from "./auth/auth";
   import {
     emailLogin
@@ -58,7 +61,6 @@
     components: {
       Header,
       Footer,
-      Breadcrumbs
     },
     data() {
       return {

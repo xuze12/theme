@@ -12,17 +12,17 @@
                 <form class="theme-form" @submit.prevent="onSubmit">
                   <div class="form-row">
                     <div class="col-md-6">
-                      <label for="First name">First Name</label>
+                      <label for="First name">名字</label>
                       <ValidationProvider rules="required" v-slot="{ errors }" name="First name">
-                        <input type="text" class="form-control" id="First name" v-model="fname" placeholder="First Name"
-                          name="First name" />
+                        <input type="text" class="form-control" id="First name" v-model="fname" placeholder="名字"
+                          name="名字" />
                         <span class="validate-error">{{ errors[0] }}</span>
                       </ValidationProvider>
                     </div>
                     <div class="col-md-6">
-                      <label for="lname">Last Name</label>
+                      <label for="lname">姓</label>
                       <ValidationProvider rules="required" v-slot="{ errors }" name="Last name">
-                        <input type="text" class="form-control" id="lname" v-model="lname" placeholder="Last Name"
+                        <input type="text" class="form-control" id="lname" v-model="lname" placeholder="姓"
                           name="lname" />
                         <span class="validate-error">{{ errors[0] }}</span>
                       </ValidationProvider>
@@ -30,22 +30,22 @@
                   </div>
                   <div class="form-row">
                     <div class="col-md-6">
-                      <label for="email">Email</label>
+                      <label for="email">电子邮件</label>
                       <ValidationProvider rules="required|email" v-slot="{ errors }" name="Email">
-                        <input type="email" class="form-control" id="email" v-model="email" placeholder="Email"
+                        <input type="email" class="form-control" id="email" v-model="email" placeholder="邮箱"
                           name="email" />
                         <span class="validate-error">{{ errors[0] }}</span>
                       </ValidationProvider>
                     </div>
                     <div class="col-md-6">
-                      <label for="password">Password</label>
+                      <label for="password">密码</label>
                       <ValidationProvider rules="required" v-slot="{ errors }" name="password">
-                        <input type="password" class="form-control" id="password" v-model="password"
-                          placeholder="Enter your password" name="password" />
+                        <input type="password" class="form-control" id="password" v-model="password" placeholder="输入密码"
+                          name="password" />
                         <span class="validate-error">{{ errors[0] }}</span>
                       </ValidationProvider>
                     </div>
-                    <button type="submit" class="btn btn-solid mt-2" :disabled="invalid">create account</button>
+                    <button type="submit" class="btn btn-solid mt-2" :disabled="invalid">创建账号</button>
                   </div>
                 </form>
               </ValidationObserver>
@@ -75,7 +75,7 @@
     },
     data() {
       return {
-        title: 'create account',
+        title: '创建帐号',
         fname: null,
         lname: null,
         email: null,
