@@ -11,6 +11,8 @@ $themeColor: #ff4c3b;
 @import 'xz_cart.scss';
 @import 'hlh_blog.scss';
 @import 'hlh_notice.scss';
+@import 'address.scss';
+@import 'header-widgets.scss';
 
 
 @media (max-width: 577px) {
@@ -37,12 +39,13 @@ $themeColor: #ff4c3b;
   height: 100%;
 }
 
-.x-blog-container{
-  p{
-    color:  #777777!important;
+.x-blog-container {
+  p {
+    color: #777777 !important;
     font-size: 15px !important;
-    span{
-      color:  #777777!important;
+
+    span {
+      color: #777777 !important;
       font-size: 15px !important;
     }
   }

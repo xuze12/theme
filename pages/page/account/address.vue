@@ -12,74 +12,57 @@
                     <div class="checkout-title">
                       <h3>添加地址</h3>
                     </div>
+
                     <div class="row check-out">
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                        <div class="field-label">名字</div>
-                        <ValidationProvider rules="required" v-slot="{ errors }" name="First name">
-                          <input type="text" v-model="user.firstName" name="名字" />
+                        <div class="field-label">收货人</div>
+                        <ValidationProvider rules="required" v-slot="{ errors }" name="收货人">
+                          <input type="text" v-model="user.firstName" name="名字" placeholder="请输入收货人" />
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
+
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                        <div class="field-label">姓</div>
-                        <ValidationProvider rules="required" v-slot="{ errors }" name="Last name">
-                          <input type="text" v-model="user.lastName" name="姓" />
+                        <ValidationProvider rules="required|digits:10" v-slot="{ errors }" name="手机号码">
+                          <div class="field-label">手机号码</div>
+                          <input type="text" v-model="user.phone" name="Phone" placeholder="请输入手机号码" />
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
+
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                        <ValidationProvider rules="required|digits:10" v-slot="{ errors }" name="phone Number">
-                          <div class="field-label">电话</div>
-                          <input type="text" v-model="user.phone" name="Phone" />
-                          <span class="validate-error">{{ errors[0] }}</span>
-                        </ValidationProvider>
+                        <div class="field-label">所在地区</div>
+                        <v-distpicker @selected="sel" class="pc-address-distpicker"></v-distpicker>
+                        <!--省市区三级联动-->
+                        <div class="divwrap" v-if="show">
+                          <v-distpicker type="mobile" @province="onChangeProvince1" @city="onChangeCity"
+                            @area="onChangeArea"></v-distpicker>
+                        </div>
+                        <!--遮罩层-->
+                        <div class="blacks" v-if="show" @click="countermand"></div>
+                        <!--触发选择-->
+                        <div @click="choose" class="mobile-address-distpicker">
+                          <input type="text" :value="city" name="名字" placeholder="请选择地址" />
+                        </div>
                       </div>
+
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                        <div class="field-label">电子邮件地址</div>
-                        <ValidationProvider rules="required|email" v-slot="{ errors }" name="Email">
-                          <input type="text" v-model="user.email" name="Email Address" />
+                        <div class="field-label">详细地址</div>
+                        <ValidationProvider rules="required" v-slot="{ errors }" name="详细地址">
+                          <input type="text" v-model="user.address" name="Address" placeholder="如道路、门牌号、小区、楼栋号、单元室等" />
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
-                      <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                        <div class="field-label">国家</div>
-                        <select>
-                          <option>印度</option>
-                          <option selected>中国</option>
-                          <option>南非</option>
-                          <option>美国</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                        <div class="field-label">地址</div>
-                        <ValidationProvider rules="required" v-slot="{ errors }" name="Address">
-                          <input type="text" v-model="user.address" name="Address" />
-                          <span class="validate-error">{{ errors[0] }}</span>
-                        </ValidationProvider>
-                      </div>
-                      <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                        <div class="field-label">城/镇</div>
-                        <ValidationProvider rules="required" v-slot="{ errors }" name="City">
-                          <input type="text" v-model="user.city" name="City" />
-                          <span class="validate-error">{{ errors[0] }}</span>
-                        </ValidationProvider>
-                      </div>
-                      <div class="form-group col-md-12 col-sm-6 col-xs-12">
-                        <div class="field-label">州 / 县</div>
-                        <ValidationProvider rules="required" v-slot="{ errors }" name="State">
-                          <input type="text" v-model="user.state" name="State" />
-                          <span class="validate-error">{{ errors[0] }}</span>
-                        </ValidationProvider>
-                      </div>
-                      <div class="form-group col-md-12 col-sm-6 col-xs-12">
+
+                      <div class="form-group col-md-6 col-sm-6 col-xs-12">
                         <div class="field-label">邮政编号</div>
-                        <ValidationProvider rules="required" v-slot="{ errors }" name="Postal Code">
-                          <input type="text" v-model="user.pincode" name="Postal Code" />
+                        <ValidationProvider rules="required" v-slot="{ errors }" name="邮政编号">
+                          <input type="text" v-model="user.pincode" name="Postal Code" placeholder="请输入邮政编号" />
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
                       <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <a href="#">添加地址</a>
+                        <a href="#" class="btn-solid btn" style="color:#fff">添加地址</a>
                       </div>
                     </div>
                   </div>
@@ -177,106 +160,142 @@
   </div>
 </template>
 <script>
+  import VDistpicker from "v-distpicker";
   import {
     ValidationProvider,
-    ValidationObserver
-  } from 'vee-validate/dist/vee-validate.full.esm'
+    ValidationObserver,
+  } from "vee-validate/dist/vee-validate.full.esm";
   import {
     mapGetters
-  } from 'vuex'
-  import Header from '../../../components/header/header'
-  import Footer from '../../../components/footer/footer'
+  } from "vuex";
+  import Header from "../../../components/header/header";
+  import Footer from "../../../components/footer/footer";
+
   export default {
     components: {
+      VDistpicker,
       Header,
       Footer,
       ValidationProvider,
-      ValidationObserver
+      ValidationObserver,
     },
     computed: {
       ...mapGetters({
-        cart: 'cart/cartItems',
-        cartTotal: 'cart/cartTotalAmount',
-        curr: 'products/changeCurrency'
-      })
+        cart: "cart/cartItems",
+        cartTotal: "cart/cartTotalAmount",
+        curr: "products/changeCurrency",
+      }),
     },
     data() {
       return {
         user: {
-          firstName: '',
-          lastName: '',
-          phone: '',
-          email: '',
-          address: '',
-          city: '',
-          state: '',
-          pincode: ''
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          address: "",
+          city: "",
+          state: "",
+          pincode: "",
+          lxr: "",
+          lxdh: "",
+          //省市区
+          province: "",
+          area: "",
         },
+        show: false,
+        props: ["ips"],
         isLogin: false,
         paypal: {
-          sandbox: 'Your Sandbox ID'
+          sandbox: "Your Sandbox ID",
         },
         payment: false,
-        environment: 'sandbox',
+        environment: "sandbox",
         button_style: {
-          label: 'checkout',
-          size: 'medium', // small | medium | large | responsive
-          shape: 'pill', // pill | rect
-          color: 'blue' // gold | blue | silver | black
+          label: "checkout",
+          size: "medium", // small | medium | large | responsive
+          shape: "pill", // pill | rect
+          color: "blue", // gold | blue | silver | black
         },
-        amtchar: ''
-      }
+        amtchar: "",
+      };
     },
     methods: {
+      //取消选择地区
+      countermand: function () {
+        this.show = false;
+        console.log(this.show, "======>>>");
+      },
+      //打开选择地区
+      choose() {
+        console.log(this.show, "11233132======>>>");
+        this.show = true;
+      },
+      onChangeProvince1: function (a) {
+        this.province = a.value;
+        if (a.value == "台湾省") {
+          this.show = false;
+        }
+      },
+      onChangeCity: function (a) {
+        this.city = a.value;
+        console.log(this.city, "onChangeCity");
+      },
+      onChangeArea: function (a) {
+        this.area = a.value;
+        this.show = false;
+        this.city = this.province + this.city + this.area;
+        console.log(this.city, "onChangeArea");
+      },
       order() {
-        this.isLogin = localStorage.getItem('userlogin')
+        this.isLogin = localStorage.getItem("userlogin");
         if (this.isLogin) {
-          this.payWithStripe()
+          this.payWithStripe();
         } else {
-          this.$router.replace('/page/account/login-firebase')
+          this.$router.replace("/page/account/login-firebase");
         }
       },
       payWithStripe() {
-        const handler = (window).StripeCheckout.configure({
-          key: 'PUBLISHBLE_KEY', // 'PUBLISHBLE_KEY' publishble key
-          locale: 'auto',
+        const handler = window.StripeCheckout.configure({
+          key: "PUBLISHBLE_KEY", // 'PUBLISHBLE_KEY' publishble key
+          locale: "auto",
           closed: function () {
-            handler.close()
+            handler.close();
           },
           token: (token) => {
-            this.$store.dispatch('products/createOrder', {
+            this.$store.dispatch("products/createOrder", {
               product: this.cart,
               userDetail: this.user,
               token: token.id,
-              amt: this.cartTotal
-            })
-            this.$router.push('/page/order-success')
-          }
-        })
+              amt: this.cartTotal,
+            });
+            this.$router.push("/page/order-success");
+          },
+        });
         handler.open({
-          name: 'Multikart ',
-          description: 'Reach to your Dream',
-          amount: this.cartTotal * 100
-        })
+          name: "Multikart ",
+          description: "Reach to your Dream",
+          amount: this.cartTotal * 100,
+        });
       },
       getamt() {
-        return this.cartTotal.toString()
+        return this.cartTotal.toString();
       },
       onPaymentComplete: function (data) {
-        this.$store.dispatch('products/createOrder', {
+        this.$store.dispatch("products/createOrder", {
           product: this.cart,
           userDetail: this.user,
           token: data.orderID,
-          amt: this.cartTotal
-        })
-        this.$router.push('/page/order-success')
+          amt: this.cartTotal,
+        });
+        this.$router.push("/page/order-success");
       },
       onCancelled() {
-        console.log('You cancelled a window')
+        console.log("You cancelled a window");
       },
       onSubmit() {
-        console.log('Form has been submitted!')
-      }
-    }
-  }
+        console.log("Form has been submitted!");
+      },
+    },
+  };
 </script>

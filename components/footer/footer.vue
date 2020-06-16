@@ -13,7 +13,7 @@
 
               </div>
             </div>
-            <div class="col">
+            <div class="col offset-xl-1">
               <div class="sub-title">
                 <div class="footer-title">
                   <h4>关于</h4>
@@ -39,7 +39,7 @@
                 </div>
               </div>
             </div>
-            <div class="col offset-xl-1">
+            <div class="col">
               <div class="sub-title">
                 <div class="footer-title">
                   <h4>联系方式</h4>

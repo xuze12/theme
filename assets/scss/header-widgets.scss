@@ -1,0 +1,14 @@
+.mobile-header-widgets {
+    display: none;
+}
+
+@media (max-width: 420px) {
+    .mobile-header-widgets {
+        display: block !important;
+        margin-left: 10px
+    }
+
+    .pc-header-widgets {
+        display: none !important;
+    }
+}

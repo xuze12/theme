@@ -1,0 +1,78 @@
+.pc-address-distpicker {
+    display: block !important;
+}
+
+.mobile-address-distpicker {
+    display: none !important;
+}
+
+@media (max-width: 420px) {
+    .pc-address-distpicker {
+        display: none !important;
+    }
+
+    .mobile-address-distpicker {
+        display: block !important;
+    }
+
+    /*遮罩层*/
+    .blacks {
+        position: fixed;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 10;
+    }
+
+    /*省市区三级联动*/
+    .divwrap {
+        height: 50%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 99;
+        background-color: #fff;
+    }
+
+    /*外部*/
+    .divwrap>.distpicker-address-wrapper {
+        color: #0d0d0d;
+        height: 100%;
+    }
+
+    /*头部*/
+    .divwrap>>>.address-header {
+        background: #fff;
+        width: 100%;
+        position: fixed;
+        bottom: 50%;
+        height: 5%;
+        font-size: 0.2rem;
+    }
+
+    /*头部内容*/
+    .divwrap>>>.address-header ul li {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    /*选择过省市区的头部*/
+    .divwrap>>>.address-header .active {
+        color: #fff;
+        border-bottom: 0.05rem solid #666;
+    }
+
+    /*内容部分*/
+    .divwrap>>>.address-container {
+        overflow: scroll;
+        height: 100%;
+    }
+
+    /*点过的地区内容*/
+    .divwrap>>>.address-container .active {
+        color: red;
+    }
+}
