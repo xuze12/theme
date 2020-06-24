@@ -1,0 +1,107 @@
+<template>
+  <div>
+    <Header />
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="table table-bordered table-striped text-center">
+            <thead>
+              <tr>
+                <th>默认地址</th>
+                <th>收货人</th>
+                <th>地址</th>
+                <th>手机号码</th>
+                <th>邮编</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in userAddressList" :key="index">
+                <td>
+                  <input type="radio" :name="item.commonAddr" :id="item.commonAddr" :value="item.commonAddr"
+                    v-model="item.commonAddr" @click="onChoice(item.addrId)" />
+                </td>
+                <td>{{ item.receiver }}</td>
+                <td>
+                  {{ item.province }} {{ item.city }} {{ item.area }} {{ item.addr }}
+                </td>
+                <td>{{ item.mobile }}</td>
+                <td>
+                  <button v-on:click="remove(item.addrId)">删除</button>
+                  <nuxt-link :to="{ path: '/page/account/address', query: item }">
+                    <button>修改</button>
+                  </nuxt-link>
+                </td>
+              </tr>
+              <!--<tr>
+          <td></td>
+          <td><input type="text" id="name" v-model="user.name" /></td>
+          <td><input type="text" id="age" v-model="user.age" /></td>
+          <td><input type="text" id="school" v-model="user.school" /></td>
+          <td><button @click="insert">insert</button></td>
+        </tr>-->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <Footer />
+  </div>
+</template>
+<script>
+  import VDistpicker from "v-distpicker";
+  import {
+    ValidationProvider,
+    ValidationObserver,
+  } from "vee-validate/dist/vee-validate.full.esm";
+  import {
+    mapGetters,
+    mapState,
+    createNamespacedHelpers
+  } from "vuex";
+  import Header from "../../../components/header/header";
+  import Footer from "../../../components/footer/footer";
+
+  const {
+    mapActions
+  } = createNamespacedHelpers("addAddr");
+  export default {
+    components: {
+      VDistpicker,
+      Header,
+      Footer,
+      ValidationProvider,
+      ValidationObserver,
+    },
+    computed: {
+      ...mapState({
+        userAddressList: (state) => state.addAddr.userAddressList,
+      }),
+      ...mapGetters({
+        cart: "cart/cartItems",
+        cartTotal: "cart/cartTotalAmount",
+        curr: "products/changeCurrency",
+      }),
+    },
+    data() {
+      return {
+        picked: false,
+        radio: 1,
+        user: {},
+      };
+    },
+    mounted() {
+      this.getAddList();
+    },
+    methods: {
+      ...mapActions(["getAddList", "delAddress", "defaultAddr"]),
+      remove: function (index) {
+        this.delAddress(index);
+        // this.users.splice(index, 1)
+      },
+
+      onChoice(e) {
+        this.defaultAddr(e)
+      }
+    },
+  };
+</script>

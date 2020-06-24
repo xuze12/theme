@@ -16,6 +16,7 @@ const _1caefa64 = () => interopDefault(import('../pages/utils/request.js' /* web
 const _c17f589c = () => interopDefault(import('../pages/blog/widgets/blog-list.vue' /* webpackChunkName: "pages/blog/widgets/blog-list" */))
 const _25853ef8 = () => interopDefault(import('../pages/blog/widgets/blog-sidebar.vue' /* webpackChunkName: "pages/blog/widgets/blog-sidebar" */))
 const _2e2c5b68 = () => interopDefault(import('../pages/page/account/address.vue' /* webpackChunkName: "pages/page/account/address" */))
+const _8b19edb4 = () => interopDefault(import('../pages/page/account/addressList.vue' /* webpackChunkName: "pages/page/account/addressList" */))
 const _1bde445c = () => interopDefault(import('../pages/page/account/cart.vue' /* webpackChunkName: "pages/page/account/cart" */))
 const _3d24bcfc = () => interopDefault(import('../pages/page/account/checkout.vue' /* webpackChunkName: "pages/page/account/checkout" */))
 const _fa9824d8 = () => interopDefault(import('../pages/page/account/contact.vue' /* webpackChunkName: "pages/page/account/contact" */))
@@ -36,6 +37,7 @@ const _813a35a0 = () => interopDefault(import('../pages/shop/fashion/components/
 const _259090d6 = () => interopDefault(import('../pages/shop/fashion/components/product_tab.vue' /* webpackChunkName: "pages/shop/fashion/components/product_tab" */))
 const _5c9e821d = () => interopDefault(import('../pages/shop/fashion/components/services.vue' /* webpackChunkName: "pages/shop/fashion/components/services" */))
 const _0d096240 = () => interopDefault(import('../pages/shop/fashion/components/slider.vue' /* webpackChunkName: "pages/shop/fashion/components/slider" */))
+const _9665a2be = () => interopDefault(import('../pages/page/account/modify/_id.vue' /* webpackChunkName: "pages/page/account/modify/_id" */))
 const _76083885 = () => interopDefault(import('../pages/collection/leftsidebar/_id.vue' /* webpackChunkName: "pages/collection/leftsidebar/_id" */))
 const _48e1d8fe = () => interopDefault(import('../pages/product/sidebar/_id.vue' /* webpackChunkName: "pages/product/sidebar/_id" */))
 const _c223ebba = () => interopDefault(import('../pages/blog/_id.vue' /* webpackChunkName: "pages/blog/_id" */))
@@ -109,6 +111,10 @@ export const routerOptions = {
     path: "/page/account/address",
     component: _2e2c5b68,
     name: "page-account-address"
+  }, {
+    path: "/page/account/addressList",
+    component: _8b19edb4,
+    name: "page-account-addressList"
   }, {
     path: "/page/account/cart",
     component: _1bde445c,
@@ -189,6 +195,10 @@ export const routerOptions = {
     path: "/shop/fashion/components/slider",
     component: _0d096240,
     name: "shop-fashion-components-slider"
+  }, {
+    path: "/page/account/modify/:id?",
+    component: _9665a2be,
+    name: "page-account-modify-id"
   }, {
     path: "/collection/leftsidebar/:id?",
     component: _76083885,

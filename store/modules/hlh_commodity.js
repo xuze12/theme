@@ -256,7 +256,6 @@ export default {
       for (let [keys, value] of Object.entries(payload)) {
         state[`${keys}`] = value;
       }
-      console.log(state, "-----save");
     },
   },
 };

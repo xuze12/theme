@@ -14,7 +14,7 @@
                         <h2>我的账户</h2>
                       </div>
                       <div class="welcome-msg">
-                        <p>你好, MARK JECNO !</p>
+                        <p>你好!</p>
                       </div>
                       <div class="box-account box-info">
                         <div class="box-head">
@@ -25,25 +25,30 @@
                           <div class="box">
                             <div class="box-title">
                               <h3>地址簿</h3>
-                              <nuxt-link :to="{ path: '/page/account/address' }">
+                              <nuxt-link :to="{ path: '/page/account/addressList' }">
                                 <a>管理地址</a>
                               </nuxt-link>
                             </div>
                             <div class="row">
                               <div class="col-sm-6">
-                                <h6>默认账单地址</h6>
+                                <h6>添加账单地址</h6>
                                 <address>
-                                  您尚未设置默认的帐单邮寄地址。
+                                  您尚未添加帐单邮寄地址。
                                   <br />
-                                  <a href="#">编辑地址</a>
+                                  <nuxt-link :to="{ path: '/page/account/address' }">
+                                    <a>添加地址</a>
+                                  </nuxt-link>
+                                  <a href="#"></a>
                                 </address>
                               </div>
                               <div class="col-sm-6">
-                                <h6>默认送货地址</h6>
+                                <h6>管理送货地址</h6>
                                 <address>
-                                  您尚未设置默认的送货地址。
+
                                   <br />
-                                  <a href="#">编辑地址</a>
+                                  <nuxt-link :to="{ path: '/page/account/addressList' }">
+                                    <a>管理地址</a>
+                                  </nuxt-link>
                                 </address>
                               </div>
                             </div>
@@ -54,52 +59,7 @@
                   </div>
                 </b-card-text>
               </b-tab>
-              <b-tab title="地址簿">
-                <b-card-text>
-                  <div class="dashboard-right">
-                    <div class="dashboard">
-                      <div class="page-title">
-                        <h2>地址簿</h2>
-                      </div>
-                      <div class="welcome-msg">
-                        <p>您好, MARK JECNO !</p>
-                        <p>从地址簿中，您可以更改或编辑送货和帐单地址。</p>
-                      </div>
-                      <div class="box-account box-info">
-                        <div class="box-head">
-                          <h2>地址信息</h2>
-                        </div>
-                        <div>
-                          <div class="box">
-                            <div class="box-title">
-                              <h3>地址簿</h3>
-                              <a href="#">管理地址</a>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-6">
-                                <h6>默认账单地址</h6>
-                                <address>
-                                  您尚未设置默认的帐单邮寄地址。
-                                  <br />
-                                  <a href="#">编辑地址</a>
-                                </address>
-                              </div>
-                              <div class="col-sm-6">
-                                <h6>默认送货地址</h6>
-                                <address>
-                                  您尚未设置默认的送货地址。
-                                  <br />
-                                  <a href="#">编辑地址</a>
-                                </address>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </b-card-text>
-              </b-tab>
+
               <b-tab title="我的订单">
                 <b-card-text>
                   <div class="dashboard-right">
@@ -145,29 +105,6 @@
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </b-card-text>
-              </b-tab>
-
-              <b-tab title="更改密码">
-                <b-card-text>
-                  <div class="dashboard-right">
-                    <div class="dashboard">
-                      <div class="page-title">
-                        <h2>更改密码</h2>
-                      </div>
-                      <div class="box-account box-info">
-                        <div class="box-head">
-                          <h2>帐户信息</h2>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <a href="#">更改密码</a>
-                          </div>
-
                         </div>
                       </div>
                     </div>

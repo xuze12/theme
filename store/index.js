@@ -12,6 +12,7 @@ import hlh_commodity from "./modules/hlh_commodity";
 import shopCart from "./modules/shopCart";
 import hlh_notice from "./modules/hlh_notice";
 import search from "./modules/search";
+import addAddr from "./modules/addAddr";
 Vue.use(Vuex);
 const createStore = () => {
   return new Vuex.Store({
@@ -27,6 +28,7 @@ const createStore = () => {
       shopCart,
       hlh_notice,
       search,
+      addAddr,
     },
   });
 };

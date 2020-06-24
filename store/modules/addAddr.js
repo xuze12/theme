@@ -1,0 +1,103 @@
+import {
+  postAddAddr,
+  getAddressList,
+  deleteAddr,
+  putUpdateAddr,
+  putDefaultAddr,
+} from "../../pages/service/api";
+
+export default {
+  namespaced: true,
+  state: {
+    userAddressList: [],
+  },
+
+  actions: {
+    // 新增用户地址
+    async postAddress(_, payload) {
+      console.log(payload, "payload----postAddress");
+      const params = {
+        addr: payload.address,
+        addrId: payload.addrId,
+        area: payload.area,
+        areaId: payload.areaId,
+        city: payload.city,
+        cityId: payload.cityId,
+        mobile: payload.phone,
+        province: payload.province,
+        provinceId: payload.provinceId,
+        receiver: payload.firstName,
+        postCode: payload.postCode,
+      };
+      await postAddAddr(params);
+    },
+
+    // 获取地址列表
+    async getAddList(context, payload) {
+      const data = await getAddressList();
+      console.log(data, "获取地址列表---------------------->");
+
+      context.commit("save", { userAddressList: data.data });
+    },
+
+    // 删除订单用户地址
+    async delAddress({ commit, state }, payload) {
+      console.log(payload, "删除订单用户地址");
+      try {
+        const params = payload;
+        await deleteAddr(params);
+        let { userAddressList } = state;
+        const userList = userAddressList.filter(
+          (item) => item.addrId !== payload
+        );
+        console.log(userList, "userList=====");
+        commit("save", { userAddressList: userList });
+      } catch (err) {
+        console.log(err, "err=====delAddress");
+      }
+    },
+
+    // 修改订单用户地址
+    async updateAddr(_, payload) {
+      console.log(payload, "修改用户接口");
+      try {
+        const params = {
+          addr: payload.address,
+          addrId: payload.addrId,
+          area: payload.area,
+          areaId: payload.areaId,
+          city: payload.city,
+          cityId: payload.cityId,
+          mobile: payload.phone,
+          province: payload.province,
+          provinceId: payload.provinceId,
+          receiver: payload.firstName,
+          postCode: payload.postCode,
+        };
+        await putUpdateAddr(params);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+
+    // 设置默认地址
+    async defaultAddr(_, payload) {
+      console.log(payload, "设置默认地址");
+      try {
+        const params = payload;
+        await putDefaultAddr(params);
+      } catch (err) {
+        alert(err);
+      }
+    },
+  },
+
+  mutations: {
+    save(state, payload) {
+      for (let [keys, value] of Object.entries(payload)) {
+        state[`${keys}`] = value;
+      }
+      console.log(state, "用户地址-----save");
+    },
+  },
+};
