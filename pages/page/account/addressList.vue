@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <table class="table table-bordered table-striped text-center">
+          <table class="table table-bordered table-striped text-center pc-table-addr">
             <thead>
               <tr>
                 <th>默认地址</th>
@@ -33,13 +33,34 @@
                   </nuxt-link>
                 </td>
               </tr>
-              <!--<tr>
-          <td></td>
-          <td><input type="text" id="name" v-model="user.name" /></td>
-          <td><input type="text" id="age" v-model="user.age" /></td>
-          <td><input type="text" id="school" v-model="user.school" /></td>
-          <td><button @click="insert">insert</button></td>
-        </tr>-->
+            </tbody>
+          </table>
+
+          <table class="table table-bordered table-striped text-center mobile-table">
+            <thead>
+              <tr>
+                <th>收货人</th>
+                <th>地址</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in userAddressList" :key="index">
+                <td>
+                  {{item.commonAddr == 1 ? "默认" : ""}}
+                  <input type="radio" name="item.commonAddr" :value="item.addrId" :id="item.commonAddr"
+                    v-model="radioAddr" @click="onChoice(item.addrId)" />
+                  {{ item.receiver }} {{ item.mobile }}</td>
+                <td>
+                  {{ item.province }} {{ item.city }} {{ item.area }} {{ item.addr }}
+                </td>
+                <td>
+                  <button v-on:click="remove(item.addrId)">删除</button>
+                  <nuxt-link :to="{ path: '/page/account/address', query: item }">
+                    <button>修改</button>
+                  </nuxt-link>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

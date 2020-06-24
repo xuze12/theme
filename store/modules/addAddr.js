@@ -120,22 +120,17 @@ export default {
     },
 
     // 设置默认地址
-    async defaultAddr(_, payload) {
-      console.log(payload, "设置默认地址");
+    async defaultAddr(context, payload) {
       try {
+        console.log(payload, "设置默认地址");
         const params = payload;
         const data = await putDefaultAddr(params);
 
-        const is_true = !(
-          data &&
-          typeof data === "object" &&
-          Reflect.has(data, "data") &&
-          Array.isArray(data.data)
-        );
+        console.log("addrList-----====");
 
-        if (is_true) {
-          return;
-        }
+        const addrList = await getAddressList();
+        console.log(addrList, "addrList-----");
+        context.commit("save", { userAddressList: addrList.data });
       } catch (err) {
         console.log(err);
       }
