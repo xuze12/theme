@@ -10,15 +10,8 @@
                   <form style="display: inline-flex;align-items: center;">
                     <div class="form-group mb-0">
                       <input type="text" class="form-control" v-model="searchString" @keyup="searchProduct"
-                        placeholder="搜索产品" />
+                        placeholder="搜索产品" @blur="searchBlur" />
                     </div>
-                    <div style="margin-left:10px">
-                      <img alt :src="getImgUrl('icon/layout4/search.png')" @click="openSearch()" class="img-fluid" />
-                      <i class="ti-search" @click="openSearch()"></i>
-                    </div>
-                    <!--<button type="submit" class="btn btn-primary">
-                      <i class="fa fa-search"></i>
-                    </button>-->
                   </form>
                   <ul class="search-results" v-if="searchProdList.length" style="position:absolute">
                     <li v-for="(product,index) in searchProdList" :key="index" class="product-box"
@@ -127,10 +120,11 @@
     mounted() {
       if (this.isLogin) {
         this.getShopCart();
-      }
+      };
     },
     methods: {
       ...mapActions(["getShopCart"]),
+      ...s_mapActions(["searchOff"]),
       getImgUrl(path) {
         return require("@/assets/images/" + path);
       },
@@ -175,6 +169,12 @@
           symbol: currSymbol
         };
         this.$store.dispatch("products/changeCurrency", this.currencyChange);
+      },
+      searchBlur() {
+        console.log('123456----searchBlur')
+        this.search = false;
+        this.searchString = "";
+        this.searchOff();
       }
     }
   };

@@ -29,7 +29,19 @@ export default {
         receiver: payload.firstName,
         postCode: payload.postCode,
       };
-      await postAddAddr(params);
+
+      const data = await postAddAddr(params);
+      const is_true = !(
+        data &&
+        typeof data === "object" &&
+        Reflect.has(data, "data") &&
+        Array.isArray(data.data)
+      );
+
+      if (is_true) {
+        return;
+      }
+      alert("添加地址成功！");
     },
 
     // 获取地址列表
@@ -37,7 +49,23 @@ export default {
       const data = await getAddressList();
       console.log(data, "获取地址列表---------------------->");
 
-      context.commit("save", { userAddressList: data.data });
+      const is_true = !(
+        data &&
+        typeof data === "object" &&
+        Reflect.has(data, "data") &&
+        Array.isArray(data.data)
+      );
+
+      if (is_true) {
+        return;
+      }
+
+      const commonItem = data.data.find((item) => item.commonAddr === 1);
+
+      context.commit("save", {
+        userAddressList: data.data,
+      });
+      return commonItem.addrId;
     },
 
     // 删除订单用户地址
@@ -52,6 +80,7 @@ export default {
         );
         console.log(userList, "userList=====");
         commit("save", { userAddressList: userList });
+        alert("删除地址成功！");
       } catch (err) {
         console.log(err, "err=====delAddress");
       }
@@ -74,7 +103,17 @@ export default {
           receiver: payload.firstName,
           postCode: payload.postCode,
         };
-        await putUpdateAddr(params);
+        const data = await putUpdateAddr(params);
+        const is_true = !(
+          data &&
+          typeof data === "object" &&
+          Reflect.has(data, "data") &&
+          Array.isArray(data.data)
+        );
+
+        if (is_true) {
+          return;
+        }
       } catch (err) {
         console.log(err);
       }
@@ -85,9 +124,20 @@ export default {
       console.log(payload, "设置默认地址");
       try {
         const params = payload;
-        await putDefaultAddr(params);
+        const data = await putDefaultAddr(params);
+
+        const is_true = !(
+          data &&
+          typeof data === "object" &&
+          Reflect.has(data, "data") &&
+          Array.isArray(data.data)
+        );
+
+        if (is_true) {
+          return;
+        }
       } catch (err) {
-        alert(err);
+        console.log(err);
       }
     },
   },

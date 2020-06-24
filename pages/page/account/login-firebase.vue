@@ -3,8 +3,8 @@
     <Header />
     <section class="login-page section-b-space">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
+        <div class="row" style="justify-content:center">
+          <div class="col-sm-6">
             <h3>{{logintitle}}</h3>
             <div class="theme-card">
               <form class="theme-form" v-on:submit="checkForm" method="post">
@@ -24,24 +24,10 @@
                     placeholder="Enter your password" required />
                 </div>
                 <a class="btn-solid btn" href="javascript:void(0)" @click="signUp">登录</a>
-                <nuxt-link :to="{ path: '/page/account/forget-password' }">
-                  <a class="btn-solid btn">忘记密码</a>
-                </nuxt-link>
-
-                <!-- Social Media -->
               </form>
             </div>
           </div>
-          <div class="col-lg-6 right-login">
-            <h3>{{registertitle}}</h3>
-            <div class="theme-card authentication-right">
-              <h6 class="title-font">创建帐户</h6>
-              <p>在我们商店注册一个免费帐户。注册既快又容易。它允许您从我们的商店订购。要开始购物，请单击“注册”</p>
-              <nuxt-link :to="{ path: '/page/account/register' }">
-                <a class="btn-solid btn">创建帐户</a>
-              </nuxt-link>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

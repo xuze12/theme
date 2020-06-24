@@ -37,13 +37,14 @@
 
                         <!--省市区三级联动-->
                         <div class="divwrap" v-if="show">
-                          <v-distpicker type="mobile"></v-distpicker>
+                          <v-distpicker type="mobile" :province="user.province" :city="user.city" :area="user.area"
+                            @selected="sel"></v-distpicker>
                         </div>
                         <!--遮罩层-->
                         <div class="blacks" v-if="show" @click="countermand"></div>
                         <!--触发选择-->
                         <div @click="choose" class="mobile-address-distpicker">
-                          <input type="text" :value="city" name="名字" placeholder="请选择地址" />
+                          <input type="text" :value="user.mobileCity" name="名字" placeholder="请选择地址" />
                         </div>
                       </div>
 
@@ -138,6 +139,7 @@
           areaId: "",
           provinceId: "",
           addrId: 0,
+          mobileCity: ""
         },
         addrParam: {},
         show: false,
@@ -202,6 +204,8 @@
         this.user.areaId = e.area.code;
         this.user.cityId = e.city.code;
         this.user.provinceId = e.province.code;
+        this.show = false;
+        this.user.mobileCity = this.user.province + this.user.city + this.user.area;
       },
       city: () => {
         console.log("city");

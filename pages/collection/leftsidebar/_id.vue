@@ -62,28 +62,19 @@
                                   </li>
                                 </ul>
                               </div>
-                              <div class="product-page-filter">
+                              <!--<div class="product-page-filter">
                                 <select @change="onChangeSort($event)">
                                   <option value="all">排序</option>
                                   <option value="low">价格从低到高</option>
                                   <option value="high">价格从高到低</option>
                                 </select>
-                              </div>
+                              </div>-->
                             </div>
                           </div>
                         </div>
                       </div>
                       <div class="product-wrapper-grid" :class="{'list-view':listview == true}">
                         <div class="row">
-                          <!--<div class="col-sm-12">
-                            <div class="text-center section-t-space section-b-space" v-if="filterProduct.length == 0">
-                              <img :src='"@/assets/images/empty-search.jpg"' class="img-fluid" alt />
-                              <h3 class="mt-3">对不起的！找不到您要找的产品！！！</h3>
-                              <div class="col-12 mt-3">
-                                <nuxt-link :to="{ path: '/'}" class="btn btn-solid">继续购物</nuxt-link>
-                              </div>
-                            </div>
-                          </div>-->
                           <div class="col-grid-box"
                             :class="{'col-lg-3':col4 == true, 'col-lg-4':col3 == true, 'col-lg-6':col2 == true, 'col-lg-2':col6 == true, 'col-lg-12':listview == true}"
                             v-for="(product,index) in prodList.records" :key="index">

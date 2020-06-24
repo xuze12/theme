@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <br />
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -11,14 +12,14 @@
                 <th>收货人</th>
                 <th>地址</th>
                 <th>手机号码</th>
-                <th>邮编</th>
+                <th>操作</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in userAddressList" :key="index">
                 <td>
-                  <input type="radio" :name="item.commonAddr" :id="item.commonAddr" :value="item.commonAddr"
-                    v-model="item.commonAddr" @click="onChoice(item.addrId)" />
+                  <input type="radio" name="item.commonAddr" :value="item.addrId" :id="item.commonAddr"
+                    v-model="radioAddr" @click="onChoice(item.addrId)" />
                 </td>
                 <td>{{ item.receiver }}</td>
                 <td>
@@ -86,11 +87,15 @@
       return {
         picked: false,
         radio: 1,
+        radioAddr: 0,
         user: {},
       };
     },
-    mounted() {
-      this.getAddList();
+    async mounted() {
+      const commonAddrId = await this.getAddList();
+      if (commonAddrId) {
+        this.radioAddr = commonAddrId
+      }
     },
     methods: {
       ...mapActions(["getAddList", "delAddress", "defaultAddr"]),
