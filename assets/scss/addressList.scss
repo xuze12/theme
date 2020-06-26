@@ -1,0 +1,17 @@
+// .pc-table-addr {
+//     display: block !important;
+// }
+
+.mobile-table {
+    display: none !important;
+}
+
+@media (max-width: 420px) {
+    .pc-table-addr {
+        display: none !important;
+    }
+
+    .mobile-table {
+        display: block !important;
+    }
+}

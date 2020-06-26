@@ -5,9 +5,6 @@
       <div class="collection-wrapper">
         <div class="container">
           <div class="row">
-            <!--<div class="col-lg-3">
-              <sidebar :isLink="true" />
-            </div>-->
             <div class="col-lg-12 col-sm-12 col-xs-12 productdetail">
               <div class="container-fluid">
                 <div class="row">
@@ -112,15 +109,6 @@
                           <span class="title-font">收藏</span>
                         </button>
                       </div>
-                      <!--<div class="border-product">
-                        <h6 class="product-title">产品描述</h6>
-                        <p>{{ prodInfo.brief }}</p>
-                      </div>-->
-
-                      <!--<div class="border-product">
-                        <h6 class="product-title">时间提醒</h6>
-                        <Timer date="December 20, 2020" />
-                      </div>-->
                     </div>
                   </div>
                 </div>
@@ -139,10 +127,6 @@
                     <h5 style="width:100%;border-bottom:1px solid #999999;line-height: 50px;font-weight: bold;">视频</h5>
                     <p>
                       <b-card-text>
-                        <!--<div class="mt-3 text-center">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8"
-                              allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                          </div>-->
                       </b-card-text>
                     </p>
                   </div>

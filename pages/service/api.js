@@ -20,7 +20,12 @@ const {
   add_orCancel,
   top_noticeList,
   notice_info,
-  search_goods
+  search_goods,
+  add_addr,
+  add_addr_list,
+  delete_addr,
+  update_addr,
+  default_addr,
 } = api;
 
 import request from "../utils/request";
@@ -180,5 +185,46 @@ export function searchGoods(params) {
   return request({
     method: "get",
     url: `${search_goods}/?${stringify(params)}`,
+  });
+}
+
+// 新增用户地址
+export function postAddAddr(params) {
+  return request({
+    method: "post",
+    url: add_addr,
+    data: JSON.stringify(params),
+  });
+}
+
+// 用户地址列表
+export function getAddressList() {
+  return request({
+    method: "get",
+    url: add_addr_list,
+  });
+}
+
+// 删除订单用户地址
+export function deleteAddr(params) {
+  return request({
+    method: "delete",
+    url: `${delete_addr}/${params}`,
+  });
+}
+
+// 修改订单用户地址
+export function putUpdateAddr(params) {
+  return request({
+    method: "put",
+    url: update_addr,
+    data: JSON.stringify(params),
+  });
+}
+
+export function putDefaultAddr(params) {
+  return request({
+    method: "put",
+    url: `${default_addr}/${params}`,
   });
 }

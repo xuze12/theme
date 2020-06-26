@@ -236,13 +236,18 @@ export default {
     // 价格排序
     async priceSorting({ commit, state }, payload) {
       console.log(payload, "payload");
+
       let { prodList } = state;
       console.log(prodList.records, "价格排序");
+
       if (payload === "low") {
-        return prodList.records.sort((a, b) => {
+        const pro = prodList.records.sort((a, b) => {
           a.price - b.price;
           console.log(a.price, b.price, "a.price - b.price");
         });
+        console.log(pro, "pro============");
+        commit("save", { prodList: pro });
+        return;
       } else if (payload === "high") {
         return prodList.records.sort((a, b) => {
           a.price < b.price;
@@ -256,7 +261,6 @@ export default {
       for (let [keys, value] of Object.entries(payload)) {
         state[`${keys}`] = value;
       }
-      console.log(state, "-----save");
     },
   },
 };

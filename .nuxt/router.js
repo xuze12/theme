@@ -16,6 +16,7 @@ const _226e3758 = () => interopDefault(import('../pages/utils/request.js' /* web
 const _461eefa6 = () => interopDefault(import('../pages/blog/widgets/blog-list.vue' /* webpackChunkName: "pages/blog/widgets/blog-list" */))
 const _1e68a2f8 = () => interopDefault(import('../pages/blog/widgets/blog-sidebar.vue' /* webpackChunkName: "pages/blog/widgets/blog-sidebar" */))
 const _6029645c = () => interopDefault(import('../pages/page/account/address.vue' /* webpackChunkName: "pages/page/account/address" */))
+const _241a781a = () => interopDefault(import('../pages/page/account/addressList.vue' /* webpackChunkName: "pages/page/account/addressList" */))
 const _4eba0030 = () => interopDefault(import('../pages/page/account/cart.vue' /* webpackChunkName: "pages/page/account/cart" */))
 const _21dc91e4 = () => interopDefault(import('../pages/page/account/checkout.vue' /* webpackChunkName: "pages/page/account/checkout" */))
 const _969e12f0 = () => interopDefault(import('../pages/page/account/contact.vue' /* webpackChunkName: "pages/page/account/contact" */))
@@ -109,6 +110,10 @@ export const routerOptions = {
     path: "/page/account/address",
     component: _6029645c,
     name: "page-account-address"
+  }, {
+    path: "/page/account/addressList",
+    component: _241a781a,
+    name: "page-account-addressList"
   }, {
     path: "/page/account/cart",
     component: _4eba0030,
