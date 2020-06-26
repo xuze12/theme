@@ -12588,6 +12588,13 @@ uuid@~3.1.0:
   resolved "https://registry.npm.taobao.org/uuid/download/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
   integrity sha1-PdPT55Crwk17DToDT/q6vijrvAQ=
 
+v-distpicker@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.npmjs.org/v-distpicker/-/v-distpicker-1.2.6.tgz#b73100f9cfbae974a8214c124b73d90b6542b2a9"
+  integrity sha512-/yCeflDNQbzElol5dc6gCIqFGNOebqGNROD96BJazFBOmhhkHICwP5cvW+Zl4KvqskDnEhnvjOIVA4UJ1SbeGQ==
+  dependencies:
+    vue "^2.6.10"
+
 v8flags@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/v8flags/-/v8flags-2.1.1.tgz#aab1a1fa30d45f88dd321148875ac02c0b55e5b4"
@@ -12615,10 +12622,10 @@ vary@^1.1.2, vary@~1.1.2:
   resolved "https://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vee-validate@^3.1.0:
-  version "3.3.0"
-  resolved "https://registry.npm.taobao.org/vee-validate/download/vee-validate-3.3.0.tgz#9f426831cbf8394860b948b30a7bcc6d2b5d173b"
-  integrity sha1-n0JoMcv4OUhguUizCnvMbStdFzs=
+vee-validate@^3.3.3:
+  version "3.3.5"
+  resolved "https://registry.npmjs.org/vee-validate/-/vee-validate-3.3.5.tgz#4988705f3cbf740e775ec16060f8cb90e7c8d4b5"
+  integrity sha512-4yK9xxBBWYbKGR7qwiKPTtZ05T8R1LzhZfGPxBSfnZ9RPmfs07BcSeHjXJnE+dFrMvK6BNgBQHQ/ghV21eRhbQ==
 
 vendors@^1.0.0:
   version "1.0.4"
@@ -12885,7 +12892,7 @@ vue2-filters@^0.7.2:
   resolved "https://registry.npm.taobao.org/vue2-filters/download/vue2-filters-0.7.2.tgz#762e8b24c9ccaa152ac43b06c21c3e41ed6c13eb"
   integrity sha1-di6LJMnMqhUqxDsGwhw+Qe1sE+s=
 
-vue@^2.0.0, vue@^2.5.17, vue@^2.5.21, vue@^2.6.11, vue@^2.6.6:
+vue@^2.0.0, vue@^2.5.17, vue@^2.5.21, vue@^2.6.10, vue@^2.6.11, vue@^2.6.6:
   version "2.6.11"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.11.tgz?cache=0&sync_timestamp=1589681262816&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha1-dllNh31LEiNEBuhONSdcbVFBJcU=

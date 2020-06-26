@@ -1,4 +1,4 @@
-const url ='http://120.77.140.132:9901';
+const url ='http://119.23.227.173:9901';
 // const url = '/api'
 export const api = {
   email_login: url+"/mail/login",
