@@ -157,7 +157,7 @@
   import compareModel from "../../../components/widgets/compare-popup";
   import cartModel from "../../../components/cart-model/cart-modal-popup";
 
-  const mapActions = createNamespacedHelpers("hlh_commodity").mapActions;
+  const mapActions = createNamespacedHelpers("commodity").mapActions;
   export default {
     components: {
       Header,
@@ -204,11 +204,11 @@
     },
     computed: {
       ...mapState({
-        prodList: state => state.hlh_commodity.prodList,
-        hlh_page: state => state.hlh_commodity.page,
-        hlh_pageSize: state => state.hlh_commodity.pageSize,
-        hlh_total: state => state.hlh_commodity.total,
-        hlh_pages: state => state.hlh_commodity.hlh_pages
+        prodList: state => state.commodity.prodList,
+        hlh_page: state => state.commodity.page,
+        hlh_pageSize: state => state.commodity.pageSize,
+        hlh_total: state => state.commodity.total,
+        hlh_pages: state => state.commodity.hlh_pages
       }),
       ...mapGetters({
         filterProduct: "filter/filterProducts",

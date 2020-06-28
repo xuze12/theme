@@ -37,7 +37,7 @@
 
   const {
     mapActions
-  } = createNamespacedHelpers("hlh_commodity");
+  } = createNamespacedHelpers("commodity");
 
   export default {
     props: ['productTYpe', 'productId'],
@@ -63,7 +63,7 @@
     },
     computed: {
       ...mapState({
-        moreBuyProdList: state => state.hlh_commodity.moreBuyProdList
+        moreBuyProdList: state => state.commodity.moreBuyProdList
       })
     },
     mounted() {

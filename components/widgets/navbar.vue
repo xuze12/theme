@@ -33,7 +33,7 @@
   } from "vuex";
   const {
     mapActions
-  } = createNamespacedHelpers("xz_home");
+  } = createNamespacedHelpers("home");
   export default {
     data() {
       return {
@@ -47,7 +47,7 @@
     computed: {
       ...mapState({
         menulist: state => state.menu.data,
-        prodTagsList: state => state.xz_home.prodTagsList
+        prodTagsList: state => state.home.prodTagsList
       })
     },
     methods: {

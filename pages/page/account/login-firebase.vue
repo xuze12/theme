@@ -108,62 +108,7 @@
 
         }
       },
-      socialLogin() {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        firebase
-          .auth()
-          .signInWithPopup(provider)
-          .then(result => {
-            console.log("Result", result);
-            Userauth.localLogin(result);
-            this.$router.replace("/");
-          })
-          .catch(err => {
-            alert("Oops. " + err.message);
-          });
-      },
-      socialLoginFacebook() {
-        const provider = new firebase.auth.FacebookAuthProvider();
-        firebase
-          .auth()
-          .signInWithPopup(provider)
-          .then(result => {
-            console.log("Result", result);
-            Userauth.localLogin(result);
-            this.$router.replace("/");
-          })
-          .catch(err => {
-            alert("Oops. " + err.message);
-          });
-      },
-      socialLoginTwitter() {
-        const provider = new firebase.auth.TwitterAuthProvider();
-        firebase
-          .auth()
-          .signInWithPopup(provider)
-          .then(result => {
-            console.log("Result", result);
-            Userauth.localLogin(result);
-            this.$router.replace("/");
-          })
-          .catch(err => {
-            alert("Oops. " + err.message);
-          });
-      },
-      socialLoginGit() {
-        const provider = new firebase.auth.GithubAuthProvider();
-        firebase
-          .auth()
-          .signInWithPopup(provider)
-          .then(result => {
-            console.log("Result", result);
-            Userauth.localLogin(result);
-            this.$router.replace("/");
-          })
-          .catch(err => {
-            alert("Oops. " + err.message);
-          });
-      }
+
     }
   };
 </script>

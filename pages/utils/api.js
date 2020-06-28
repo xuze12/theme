@@ -9,7 +9,7 @@ export const api = {
   page_prod_list: url + "/prod/pageProd", // 加载分类列表
   home_tag_prod_list: url + "/prod/tagProdList", // 首页所有标签商品接口
   prod_Info: url + "/prod/prodInfo", //商品详情
-  prod_comm: url + "/prod/prodComm/prodCommPageByProd", //评论
+  prod_comm: url + "/prodComm/prodCommPageByProd", //评论
   lasted_prod_page: url + "/prod/lastedProdPage", //新品推荐
   more_buy_prod_list: url + "/prod/moreBuyProdList", //每日疯抢
   shop_cart: url + "/p/shopCart/info", //购物车信息

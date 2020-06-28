@@ -200,7 +200,7 @@
 
   const {
     mapActions
-  } = createNamespacedHelpers("hlh_commodity");
+  } = createNamespacedHelpers("commodity");
   export default {
     props: {
       isLink: {
@@ -236,8 +236,8 @@
     computed: {
       ...mapState({
         productslist: state => state.products.productslist,
-        records: state => state.hlh_commodity.records,
-        categoryList: state => state.hlh_commodity.categoryList,
+        records: state => state.commodity.records,
+        categoryList: state => state.commodity.categoryList,
         currency: state => state.products.currency
       })
     },

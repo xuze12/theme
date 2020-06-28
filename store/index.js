@@ -7,10 +7,10 @@ import cart from "./modules/cart";
 import filter from "./modules/filter";
 import layout from "./modules/layout";
 
-import xz_home from "./modules/xz_home";
-import hlh_commodity from "./modules/hlh_commodity";
+import home from "./modules/home";
+import commodity from "./modules/commodity";
 import shopCart from "./modules/shopCart";
-import hlh_notice from "./modules/hlh_notice";
+import notice from "./modules/notice";
 import search from "./modules/search";
 import addAddr from "./modules/addAddr";
 Vue.use(Vuex);
@@ -23,10 +23,10 @@ const createStore = () => {
       cart,
       filter,
       layout,
-      xz_home,
-      hlh_commodity,
+      home,
+      commodity,
       shopCart,
-      hlh_notice,
+      notice,
       search,
       addAddr,
     },

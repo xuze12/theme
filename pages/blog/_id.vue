@@ -21,7 +21,7 @@
   import Breadcrumbs from '../../components/widgets/breadcrumbs'
   const {
     mapActions
-  } = createNamespacedHelpers("hlh_notice");
+  } = createNamespacedHelpers("notice");
 
   export default {
     components: {
@@ -31,7 +31,7 @@
     },
     computed: {
       ...mapState({
-        noticeInfo: state => state.hlh_notice.noticeInfo, // 置顶公告列表信息
+        noticeInfo: state => state.notice.noticeInfo, // 置顶公告列表信息
       })
     },
     mounted() {

@@ -103,7 +103,7 @@ export default {
     },
 
     async getProdInfo(context, payload) {
-      console.log(payload, "商品详情页");
+      // console.log(payload, "商品详情页");
       const { data } = await getProdInfo(payload);
 
       const is_true = !(
@@ -118,7 +118,7 @@ export default {
 
       // const skuId = data.skuList && data.skuList[0] ? data.skuList[0].skuId : 0
 
-      console.log(data, "商品详情页");
+      // console.log(data, "商品详情页");
       context.commit("save", { prodInfo: data, totalStocks: data.totalStocks });
     },
     //切换类型
@@ -146,14 +146,14 @@ export default {
         size: 10,
       };
       const { data } = await getLastedProdPage(parma);
-      console.log(data, "新品推荐");
+      // console.log(data, "新品推荐");
       context.commit("save", { records: data.records });
     },
 
     // 每日疯抢
     async getMoreBuyProdList(context, payload) {
       const { data } = await getMoreBuyProdList(payload);
-      console.log(data, "每日疯抢");
+      // console.log(data, "每日疯抢");
       context.commit("save", { moreBuyProdList: data.records });
     },
 
@@ -192,13 +192,14 @@ export default {
     // 根据商品返回评论分页数据
     async prodCommPageByProd(context, payload) {
       console.log(payload, "根据商品返回评论分页数据");
-      // const paramt = {
-      //   evaluate: null,
-      //   prodId: payload.prodId,
-      //   current: 1,
-      //   size: 10,
-      // };
-      // await getProdComm(paramt);
+      const params = {
+        evaluate: -1,
+        prodId: payload.prodId,
+        current: 1,
+        size: 10,
+      };
+      const data = await getProdComm(params);
+      console.log(data.data, "data--------prodCommPageByProd");
     },
 
     // 获取用户收藏商品列表
@@ -210,7 +211,7 @@ export default {
       const { data } = await getCollection(params);
 
       context.commit("save", { userCollection: data });
-      console.log(data, "获取用户收藏商品列表");
+      // console.log(data, "获取用户收藏商品列表");
     },
 
     // 添加/取消收藏复制
@@ -221,7 +222,7 @@ export default {
         let { userCollection } = state;
         let { records } = userCollection;
 
-        console.log(records, "-------records-userCollection");
+        // console.log(records, "-------records-userCollection");
 
         await postAddOrCancel(prodId);
         const list = records.filter((item) => item.prodId !== prodId);

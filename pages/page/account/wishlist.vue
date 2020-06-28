@@ -91,7 +91,7 @@
 
   const {
     mapActions
-  } = createNamespacedHelpers("hlh_commodity")
+  } = createNamespacedHelpers("commodity")
   export default {
     components: {
       Header,
@@ -99,7 +99,7 @@
     },
     computed: {
       ...mapState({
-        userCollection: (state) => state.hlh_commodity.userCollection,
+        userCollection: (state) => state.commodity.userCollection,
       }),
       ...mapGetters({
         wishlist: 'products/wishlistItems',

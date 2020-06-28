@@ -37,7 +37,6 @@ const _813a35a0 = () => interopDefault(import('../pages/shop/fashion/components/
 const _259090d6 = () => interopDefault(import('../pages/shop/fashion/components/product_tab.vue' /* webpackChunkName: "pages/shop/fashion/components/product_tab" */))
 const _5c9e821d = () => interopDefault(import('../pages/shop/fashion/components/services.vue' /* webpackChunkName: "pages/shop/fashion/components/services" */))
 const _0d096240 = () => interopDefault(import('../pages/shop/fashion/components/slider.vue' /* webpackChunkName: "pages/shop/fashion/components/slider" */))
-const _9665a2be = () => interopDefault(import('../pages/page/account/modify/_id.vue' /* webpackChunkName: "pages/page/account/modify/_id" */))
 const _76083885 = () => interopDefault(import('../pages/collection/leftsidebar/_id.vue' /* webpackChunkName: "pages/collection/leftsidebar/_id" */))
 const _48e1d8fe = () => interopDefault(import('../pages/product/sidebar/_id.vue' /* webpackChunkName: "pages/product/sidebar/_id" */))
 const _c223ebba = () => interopDefault(import('../pages/blog/_id.vue' /* webpackChunkName: "pages/blog/_id" */))
@@ -195,10 +194,6 @@ export const routerOptions = {
     path: "/shop/fashion/components/slider",
     component: _0d096240,
     name: "shop-fashion-components-slider"
-  }, {
-    path: "/page/account/modify/:id?",
-    component: _9665a2be,
-    name: "page-account-modify-id"
   }, {
     path: "/collection/leftsidebar/:id?",
     component: _76083885,

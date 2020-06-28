@@ -24,7 +24,7 @@
   const {
     mapState,
     mapActions
-  } = createNamespacedHelpers("xz_home");
+  } = createNamespacedHelpers("home");
   export default {
     props: ["leftSidebarVal"],
     data() {

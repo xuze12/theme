@@ -19,18 +19,18 @@ let store = {};
   // Enforce store modules
   store.modules = store.modules || {}
 
-  resolveStoreModules(require('../store/modules/xz_home.js'), 'modules/xz_home.js')
+  resolveStoreModules(require('../store/modules/shopCart.js'), 'modules/shopCart.js')
   resolveStoreModules(require('../store/modules/blog.js'), 'modules/blog.js')
   resolveStoreModules(require('../store/modules/cart.js'), 'modules/cart.js')
+  resolveStoreModules(require('../store/modules/commodity.js'), 'modules/commodity.js')
   resolveStoreModules(require('../store/modules/filter.js'), 'modules/filter.js')
-  resolveStoreModules(require('../store/modules/hlh_commodity.js'), 'modules/hlh_commodity.js')
   resolveStoreModules(require('../store/modules/addAddr.js'), 'modules/addAddr.js')
   resolveStoreModules(require('../store/modules/layout.js'), 'modules/layout.js')
   resolveStoreModules(require('../store/modules/menu.js'), 'modules/menu.js')
+  resolveStoreModules(require('../store/modules/notice.js'), 'modules/notice.js')
   resolveStoreModules(require('../store/modules/products.js'), 'modules/products.js')
   resolveStoreModules(require('../store/modules/search.js'), 'modules/search.js')
-  resolveStoreModules(require('../store/modules/shopCart.js'), 'modules/shopCart.js')
-  resolveStoreModules(require('../store/modules/hlh_notice.js'), 'modules/hlh_notice.js')
+  resolveStoreModules(require('../store/modules/home.js'), 'modules/home.js')
 
   // If the environment supports hot reloading...
 
@@ -38,18 +38,18 @@ let store = {};
     // Whenever any Vuex module is updated...
     module.hot.accept([
       '../store/index.js',
-      '../store/modules/xz_home.js',
+      '../store/modules/shopCart.js',
       '../store/modules/blog.js',
       '../store/modules/cart.js',
+      '../store/modules/commodity.js',
       '../store/modules/filter.js',
-      '../store/modules/hlh_commodity.js',
       '../store/modules/addAddr.js',
       '../store/modules/layout.js',
       '../store/modules/menu.js',
+      '../store/modules/notice.js',
       '../store/modules/products.js',
       '../store/modules/search.js',
-      '../store/modules/shopCart.js',
-      '../store/modules/hlh_notice.js',
+      '../store/modules/home.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

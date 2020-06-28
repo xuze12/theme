@@ -90,7 +90,7 @@ export function getProdInfo(params) {
 }
 
 // 评论
-export function getProdComm() {
+export function getProdComm(params) {
   return request({
     method: "get",
     url: prod_comm,

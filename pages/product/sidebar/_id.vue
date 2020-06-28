@@ -173,8 +173,6 @@
                       </form>
                     </b-card-text>
                   </div>
-
-
                 </div>
               </section>
             </div>
@@ -205,7 +203,7 @@
   import sidebar from "../../../components/widgets/collection-sidebar";
   import relatedProduct from "../../../components/widgets/related-products";
 
-  const c_mapActions = createNamespacedHelpers("hlh_commodity").mapActions;
+  const c_mapActions = createNamespacedHelpers("commodity").mapActions;
   const s_mapActions = createNamespacedHelpers("shopCart").mapActions;
 
   export default {
@@ -221,7 +219,6 @@
     data() {
       return {
         counter: 1,
-        activeColor: "",
         selectedSize: "",
         qty: "",
         size: [],
@@ -244,9 +241,9 @@
     computed: {
       ...mapState({
         currency: state => state.products.currency,
-        prodInfo: state => state.hlh_commodity.prodInfo,
-        skuId: state => state.hlh_commodity.skuId,
-        totalStocks: state => state.hlh_commodity.totalStocks
+        prodInfo: state => state.commodity.prodInfo,
+        skuId: state => state.commodity.skuId,
+        totalStocks: state => state.commodity.totalStocks
       }),
       ...mapGetters({
         curr: "products/changeCurrency"
@@ -258,19 +255,13 @@
       }
     },
     mounted() {
-      // For displaying default color and size on pageload
-      this.uniqColor = this.getDetail.variants[0].color;
-      // this.sizeVariant(this.getDetail.variants[0].image_id);
-      // Active default color
-      this.activeColor = this.uniqColor;
-      this.changeSizeVariant(this.getDetail.variants[0].size);
-      // related product type
-      this.relatedProducts();
       this.getProdInfo({
         prodId: this.$route.params.id
       });
       this.getMoreBuyProdList();
-      this.prodCommPageByProd();
+      this.prodCommPageByProd({
+        prodId: this.$route.params.id
+      });
     },
     methods: {
       ...c_mapActions([
@@ -285,28 +276,15 @@
       priceCurrency: function () {
         this.$store.dispatch("products/changeCurrency");
       },
+
       addToWishlist: function (prodInfo) {
         console.log("收藏");
         this.addOrCancel(prodInfo);
       },
+
       discountedPrice(product) {
         const price = product.price - (product.price * product.discount) / 100;
         return price;
-      },
-      // Related Products display
-      relatedProducts() {
-        this.productTYpe = this.getDetail.type;
-        this.productId = this.getDetail.id;
-      },
-      // Display Unique Color
-      Color(variants) {
-        const uniqColor = [];
-        for (let i = 0; i < Object.keys(variants).length; i++) {
-          if (uniqColor.indexOf(variants[i].color) === -1) {
-            uniqColor.push(variants[i].color);
-          }
-        }
-        return uniqColor;
       },
 
       // 加入购物车
@@ -325,7 +303,6 @@
           skuId: this.skuId,
           num: qty
         });
-        console.log(data, "--------------addToCart===-");
         if (data) {
           this.totalStocksCincrement();
         }
@@ -341,27 +318,14 @@
         } catch (err) {
           console.log("立即购买失败");
         }
-        // product.quantity = qty || 1;
-        // this.$store.dispatch("cart/addToCart", product);
-        // this.$router.push("/page/account/checkout");
       },
-      // Item Count
       increment() {
         this.counter++;
-        // this.totalStocksCincrement();
       },
       decrement() {
         if (this.counter > 1) {
           this.counter--;
-          // this.totalStocksDecrement();
         }
-      },
-      // Change size variant
-      changeSizeVariant(variant) {
-        this.selectedSize = variant;
-      },
-      getImgUrl(path) {
-        return require("@/assets/images/" + path);
       },
       swiper() {
         console.log(this.$refs, " this.$refs");
@@ -371,17 +335,7 @@
       slideTo(id) {
         this.swiper().slideTo(id, 1000, false);
       },
-      sizeVariant(id, slideId, color) {
-        this.swiper().slideTo(slideId, 1000, false);
-        this.size = [];
-        this.activeColor = color;
-        this.prodInfo.imgs.split(",")[1].filter(item => {
-          console.log(item, "itemitem");
-          if (id === item.image_id) {
-            this.size.push(item.size);
-          }
-        });
-      }
+
     }
   };
 </script>

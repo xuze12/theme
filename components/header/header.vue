@@ -10,7 +10,7 @@
               <div class="menu-left">
                 <div class="brand-logo">
                   <nuxt-link :to="{ path: '/shop/fashion'}">
-                    <img :src='"@/assets/images/icon/logo.png"' class="img-fluid" alt width="30rem" />
+                    <img :src='"@/assets/images/icon/logo.png"' class="img-fluid" alt width="100rem" />
                   </nuxt-link>
                 </div>
               </div>

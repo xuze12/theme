@@ -1836,10 +1836,10 @@ ajv@^6.1.0, ajv@^6.10.2, ajv@^6.12.0, ajv@^6.5.5, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ali-oss@^6.8.0:
-  version "6.8.0"
-  resolved "https://registry.npmjs.org/ali-oss/-/ali-oss-6.8.0.tgz#5bbe906e6762d5e5051c35103fbee10f9d98bcf8"
-  integrity sha512-EaT1VTWwDDxe1fXZm6P23xsBJNaJ77xERz+lDO9iU+qb0bhn/BhiVtyZueanLrTyjmK0TDgpsjw6ga/P+VILSw==
+ali-oss@^6.9.1:
+  version "6.9.1"
+  resolved "https://registry.npm.taobao.org/ali-oss/download/ali-oss-6.9.1.tgz#769cd52a488b080b1f4192fba205fc141816d4f8"
+  integrity sha1-dpzVKkiLCAsfQZL7ogX8FBgW1Pg=
   dependencies:
     address "^1.0.0"
     agentkeepalive "^3.4.1"
@@ -1857,9 +1857,10 @@ ali-oss@^6.8.0:
     js-base64 "^2.5.2"
     jstoxml "^0.2.3"
     merge-descriptors "^1.0.1"
-    mime "^1.3.4"
+    mime "^2.4.5"
     mz-modules "^2.1.0"
     platform "^1.3.1"
+    pump "^3.0.0"
     sdk-base "^2.0.1"
     stream-http "2.8.2"
     stream-wormhole "^1.0.4"
@@ -3821,6 +3822,11 @@ combined-stream@^1.0.5, combined-stream@^1.0.6, combined-stream@~1.0.5, combined
   integrity sha1-w9RaizT9cwYxoRCoolIGgrMdWn8=
   dependencies:
     delayed-stream "~1.0.0"
+
+commander@*:
+  version "5.1.0"
+  resolved "https://registry.npm.taobao.org/commander/download/commander-5.1.0.tgz?cache=0&sync_timestamp=1592632033071&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
+  integrity sha1-Rqu9FlL44Fm92u+Zu9yyrZzxea4=
 
 commander@2.17.x:
   version "2.17.1"
@@ -6105,6 +6111,11 @@ good-listener@^1.2.2:
   dependencies:
     delegate "^3.1.2"
 
+good-storage@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/good-storage/download/good-storage-1.1.1.tgz#081501c01607d5fee2a214f94e8f5f9cb994789f"
+  integrity sha1-CBUBwBYH1f7iohT5To9fnLmUeJ8=
+
 got@^6.7.1:
   version "6.7.1"
   resolved "https://registry.npm.taobao.org/got/download/got-6.7.1.tgz#240cd05785a9a18e561dc1b44b41c763ef1e8db0"
@@ -7971,6 +7982,11 @@ mime@^2.3.1, mime@^2.4.4:
   resolved "https://registry.npm.taobao.org/mime/download/mime-2.4.5.tgz#d8de2ecb92982dedbb6541c9b6841d7f218ea009"
   integrity sha1-2N4uy5KYLe27ZUHJtoQdfyGOoAk=
 
+mime@^2.4.5:
+  version "2.4.6"
+  resolved "https://registry.npm.taobao.org/mime/download/mime-2.4.6.tgz?cache=0&sync_timestamp=1590596706367&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmime%2Fdownload%2Fmime-2.4.6.tgz#e5b407c90db442f2beb5b162373d07b69affa4d1"
+  integrity sha1-5bQHyQ20QvK+tbFiNz0Htpr/pNE=
+
 mimic-fn@^1.0.0:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/mimic-fn/download/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
@@ -8108,6 +8124,13 @@ mixin-deep@^1.2.0:
   integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
   dependencies:
     minimist "^1.2.5"
+
+mockjs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npm.taobao.org/mockjs/download/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
+  integrity sha1-5qDDeOkZBtuv8gkRzAJzs8fXWwY=
+  dependencies:
+    commander "*"
 
 move-concurrently@^1.0.1, move-concurrently@~1.0.1:
   version "1.0.1"
@@ -12588,6 +12611,13 @@ uuid@~3.1.0:
   resolved "https://registry.npm.taobao.org/uuid/download/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
   integrity sha1-PdPT55Crwk17DToDT/q6vijrvAQ=
 
+v-distpicker@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.npm.taobao.org/v-distpicker/download/v-distpicker-1.2.6.tgz#b73100f9cfbae974a8214c124b73d90b6542b2a9"
+  integrity sha1-tzEA+c+66XSoIUwSS3PZC2VCsqk=
+  dependencies:
+    vue "^2.6.10"
+
 v8flags@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/v8flags/-/v8flags-2.1.1.tgz#aab1a1fa30d45f88dd321148875ac02c0b55e5b4"
@@ -12615,10 +12645,10 @@ vary@^1.1.2, vary@~1.1.2:
   resolved "https://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vee-validate@^3.1.0:
-  version "3.3.0"
-  resolved "https://registry.npm.taobao.org/vee-validate/download/vee-validate-3.3.0.tgz#9f426831cbf8394860b948b30a7bcc6d2b5d173b"
-  integrity sha1-n0JoMcv4OUhguUizCnvMbStdFzs=
+vee-validate@^3.3.3:
+  version "3.3.5"
+  resolved "https://registry.npm.taobao.org/vee-validate/download/vee-validate-3.3.5.tgz#4988705f3cbf740e775ec16060f8cb90e7c8d4b5"
+  integrity sha1-SYhwXzy/dA53XsFgYPjLkOfI1LU=
 
 vendors@^1.0.0:
   version "1.0.4"
@@ -12885,7 +12915,7 @@ vue2-filters@^0.7.2:
   resolved "https://registry.npm.taobao.org/vue2-filters/download/vue2-filters-0.7.2.tgz#762e8b24c9ccaa152ac43b06c21c3e41ed6c13eb"
   integrity sha1-di6LJMnMqhUqxDsGwhw+Qe1sE+s=
 
-vue@^2.0.0, vue@^2.5.17, vue@^2.5.21, vue@^2.6.11, vue@^2.6.6:
+vue@^2.0.0, vue@^2.5.17, vue@^2.5.21, vue@^2.6.10, vue@^2.6.11, vue@^2.6.6:
   version "2.6.11"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.11.tgz?cache=0&sync_timestamp=1589681262816&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha1-dllNh31LEiNEBuhONSdcbVFBJcU=

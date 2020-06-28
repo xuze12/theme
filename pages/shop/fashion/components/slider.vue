@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- <h2 class="title">{{ $t('home.title') }}</h2> -->
-    <!-- <h2 class="subtitle">{{ $t('home.introduction') }}</h2> -->
-    <!-- Home slider -->
     <section class="p-0" style="width: 100%;justify-content: center;display: inline-flex;">
       <div class="slide-1 home-slider" style="width: 80%;">
         <div v-swiper:mySwiper="swiperOption">
@@ -43,7 +40,7 @@
   } from "vuex";
   const {
     mapActions
-  } = createNamespacedHelpers("xz_home");
+  } = createNamespacedHelpers("home");
 
   export default {
     data() {
@@ -59,7 +56,7 @@
     },
     computed: {
       ...mapState({
-        indexImgs: state => state.xz_home.indexImgs,
+        indexImgs: state => state.home.indexImgs,
       })
     },
 
