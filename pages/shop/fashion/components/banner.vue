@@ -1,10 +1,7 @@
 <template>
   <div>
     <section class="p-0">
-      <div
-        class="full-banner parallax text-center p-left"
-        v-bind:style="{ 'background-image': `url(${imagepath})` }"
-      >
+      <div class="full-banner parallax text-center p-left" v-bind:style="{ 'background-image': `url(${imagepath})` }">
         <img :src="imagepath" alt class="bg-img d-none" />
         <div class="container">
           <div class="row">
@@ -12,7 +9,6 @@
               <div class="banner-contain">
                 <h2>{{title}}</h2>
                 <h3>{{subtitle}}</h3>
-                <h4>{{text}}</h4>
               </div>
             </div>
           </div>
@@ -22,14 +18,13 @@
   </div>
 </template>
 <script type="text/javascript">
-export default {
-  data() {
-    return {
-      imagepath: require('@/assets/images/parallax/28.jpg'),
-      title: '2019',
-      subtitle: '时尚潮流',
-      text: '特价'
+  export default {
+    data() {
+      return {
+        imagepath: require('@/assets/images/parallax/28.jpg'),
+        title: '',
+        subtitle: '',
+      }
     }
   }
-}
 </script>

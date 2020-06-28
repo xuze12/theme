@@ -121,7 +121,7 @@
                   </div>
                   <div class="col-sm-12 col-lg-12">
                     <h5 style="width:100%;border-bottom:1px solid #999999;line-height: 50px;font-weight: bold;">细节</h5>
-                    <div v-html="prodInfo.content"></div>
+                    <div v-html="prodInfo.content" id="prodInfo_img"></div>
                   </div>
                   <div class="col-sm-12 col-lg-12">
                     <h5 style="width:100%;border-bottom:1px solid #999999;line-height: 50px;font-weight: bold;">视频</h5>

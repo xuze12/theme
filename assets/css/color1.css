@@ -4514,7 +4514,7 @@ header.video-header .top-header .header-dropdown li a i {
 }
 
 .full-banner.parallax {
-    background-attachment: fixed
+    /* background-attachment: fixed */
 }
 
 .full-banner.p-left .banner-contain {
