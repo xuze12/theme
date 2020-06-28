@@ -3825,8 +3825,13 @@ combined-stream@^1.0.5, combined-stream@^1.0.6, combined-stream@~1.0.5, combined
 
 commander@*:
   version "5.1.0"
+<<<<<<< HEAD
   resolved "https://registry.npm.taobao.org/commander/download/commander-5.1.0.tgz?cache=0&sync_timestamp=1592632033071&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
   integrity sha1-Rqu9FlL44Fm92u+Zu9yyrZzxea4=
+=======
+  resolved "https://registry.npmjs.org/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
+  integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
+>>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
 
 commander@2.17.x:
   version "2.17.1"
@@ -6113,8 +6118,13 @@ good-listener@^1.2.2:
 
 good-storage@^1.1.1:
   version "1.1.1"
+<<<<<<< HEAD
   resolved "https://registry.npm.taobao.org/good-storage/download/good-storage-1.1.1.tgz#081501c01607d5fee2a214f94e8f5f9cb994789f"
   integrity sha1-CBUBwBYH1f7iohT5To9fnLmUeJ8=
+=======
+  resolved "https://registry.npmjs.org/good-storage/-/good-storage-1.1.1.tgz#081501c01607d5fee2a214f94e8f5f9cb994789f"
+  integrity sha512-+0UEpRT03fJgEJoeTVVz41ISC5+jaQrDIWatQ4BoDQfOiBBsjNanymi9sAtLFdEAADQN0FYR8mGpeqxSCe8oXQ==
+>>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
 
 got@^6.7.1:
   version "6.7.1"
@@ -8127,8 +8137,13 @@ mixin-deep@^1.2.0:
 
 mockjs@^1.1.0:
   version "1.1.0"
+<<<<<<< HEAD
   resolved "https://registry.npm.taobao.org/mockjs/download/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
   integrity sha1-5qDDeOkZBtuv8gkRzAJzs8fXWwY=
+=======
+  resolved "https://registry.npmjs.org/mockjs/-/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
+  integrity sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==
+>>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
   dependencies:
     commander "*"
 
@@ -12613,8 +12628,13 @@ uuid@~3.1.0:
 
 v-distpicker@^1.2.6:
   version "1.2.6"
+<<<<<<< HEAD
   resolved "https://registry.npm.taobao.org/v-distpicker/download/v-distpicker-1.2.6.tgz#b73100f9cfbae974a8214c124b73d90b6542b2a9"
   integrity sha1-tzEA+c+66XSoIUwSS3PZC2VCsqk=
+=======
+  resolved "https://registry.npmjs.org/v-distpicker/-/v-distpicker-1.2.6.tgz#b73100f9cfbae974a8214c124b73d90b6542b2a9"
+  integrity sha512-/yCeflDNQbzElol5dc6gCIqFGNOebqGNROD96BJazFBOmhhkHICwP5cvW+Zl4KvqskDnEhnvjOIVA4UJ1SbeGQ==
+>>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
   dependencies:
     vue "^2.6.10"
 
@@ -12647,8 +12667,13 @@ vary@^1.1.2, vary@~1.1.2:
 
 vee-validate@^3.3.3:
   version "3.3.5"
+<<<<<<< HEAD
   resolved "https://registry.npm.taobao.org/vee-validate/download/vee-validate-3.3.5.tgz#4988705f3cbf740e775ec16060f8cb90e7c8d4b5"
   integrity sha1-SYhwXzy/dA53XsFgYPjLkOfI1LU=
+=======
+  resolved "https://registry.npmjs.org/vee-validate/-/vee-validate-3.3.5.tgz#4988705f3cbf740e775ec16060f8cb90e7c8d4b5"
+  integrity sha512-4yK9xxBBWYbKGR7qwiKPTtZ05T8R1LzhZfGPxBSfnZ9RPmfs07BcSeHjXJnE+dFrMvK6BNgBQHQ/ghV21eRhbQ==
+>>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
 
 vendors@^1.0.0:
   version "1.0.4"
