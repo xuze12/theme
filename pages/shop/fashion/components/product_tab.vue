@@ -13,12 +13,7 @@
           <div class="col">
             <div class="theme-tab">
               <b-tabs content-class="mt-3">
-                <!-- <b-tab
-                  :title="collection"
-                  v-for="(collection,index) in category"
-                  :key="index"
-                >-->
-                <div class="no-slider row">
+                <div class="no-slider row ">
                   <div class="product-box" v-for="(product,index) in products" :key="index">
                     <productBox1 @opencartmodel="showCartModal" @showCompareModal="showcomparemodal"
                       @openquickview="showquickview" @showalert="alert" @alertseconds="alert" :product="product"

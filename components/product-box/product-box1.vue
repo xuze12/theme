@@ -10,8 +10,7 @@
     </div>
     <div class="product-detail" style="text-align: center">
       <nuxt-link :to="{ path: '/product/sidebar/'+product.prodId}">
-        <h6
-          style="height:50px;line-height: 25px;margin: 15px 0 0px 0;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">
+        <h6 class="h6-name">
           {{ product.prodName }}</h6>
       </nuxt-link>
 

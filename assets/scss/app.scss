@@ -33,11 +33,29 @@ $themeColor: #ff4c3b;
     padding: 1.25rem 0;
   }
 
+  .row-grid-pro {
+    width: 100vw;
+
+    .col-grid-pro {
+      width: 50%;
+    }
+  }
 }
 
 .x-blog-container img {
   width: 100%;
   height: 100%;
+}
+
+.h6-name {
+  height: 50px;
+  line-height: 25px;
+  margin: 15px 0 0px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .x-blog-container {
@@ -52,11 +70,21 @@ $themeColor: #ff4c3b;
   }
 }
 
-#prodInfo_img {
-  p {
-    img {
-      width: 100%;
-      height: auto;
-    }
+.h5_classify {
+  width: 100%;
+  border-bottom: 1px solid #999999;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.prodInfo_img {
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  table {
+    width: 100% !important;
+    height: auto !important;
   }
 }

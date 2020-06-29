@@ -116,22 +116,22 @@
               <section class="tab-product m-0">
                 <div class="row">
                   <div class="col-sm-12 col-lg-12">
-                    <h5 style="width:100%;border-bottom:1px solid #999999;line-height: 50px;font-weight: bold;">描述</h5>
+                    <h5 class="h5_classify">描述</h5>
                     <p>描述: {{ prodInfo.brief }}</p>
                   </div>
                   <div class="col-sm-12 col-lg-12">
-                    <h5 style="width:100%;border-bottom:1px solid #999999;line-height: 50px;font-weight: bold;">细节</h5>
-                    <div v-html="prodInfo.content" id="prodInfo_img"></div>
+                    <h5 class="h5_classify">细节</h5>
+                    <div v-html="prodInfo.content" class="prodInfo_img"></div>
                   </div>
                   <div class="col-sm-12 col-lg-12">
-                    <h5 style="width:100%;border-bottom:1px solid #999999;line-height: 50px;font-weight: bold;">视频</h5>
+                    <h5 class="h5_classify">视频</h5>
                     <p>
                       <b-card-text>
                       </b-card-text>
                     </p>
                   </div>
                   <div class="col-sm-12 col-lg-12">
-                    <h5 style="width:100%;border-bottom:1px solid #999999;line-height: 50px;font-weight: bold;">评论</h5>
+                    <h5 class="h5_classify">评论</h5>
                     <b-card-text>
                       <form class="theme-form">
                         <div class="form-row">

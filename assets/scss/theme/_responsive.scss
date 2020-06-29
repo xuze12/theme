@@ -8044,7 +8044,7 @@
   .no-slider {
     .product-box {
       flex: 0 0 100%;
-      max-width: calc(100% - 30px);
+      // max-width: calc(100% - 30px);
       margin: 0 15px 30px !important;
 
       &:nth-last-child(1) {

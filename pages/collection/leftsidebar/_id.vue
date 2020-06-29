@@ -74,8 +74,8 @@
                         </div>
                       </div>
                       <div class="product-wrapper-grid" :class="{'list-view':listview == true}">
-                        <div class="row">
-                          <div class="col-grid-box"
+                        <div class="row row-grid-pro">
+                          <div class="col-grid-box col-grid-pro"
                             :class="{'col-lg-3':col4 == true, 'col-lg-4':col3 == true, 'col-lg-6':col2 == true, 'col-lg-2':col6 == true, 'col-lg-12':listview == true}"
                             v-for="(product,index) in prodList.records" :key="index">
                             <div class="product-box">
