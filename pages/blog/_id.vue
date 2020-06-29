@@ -18,7 +18,6 @@
   } from "vuex";
   import Header from '../../components/header/header'
   import Footer from '../../components/footer/footer'
-  import Breadcrumbs from '../../components/widgets/breadcrumbs'
   const {
     mapActions
   } = createNamespacedHelpers("notice");
@@ -26,7 +25,6 @@
   export default {
     components: {
       Header,
-      Breadcrumbs,
       Footer
     },
     computed: {

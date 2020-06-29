@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header />
-    <Breadcrumbs title="Checkout" />
     <section class="section-b-space">
       <div class="container">
         <div class="checkout-page">
@@ -22,12 +21,10 @@
   } from 'vuex'
   import Header from '../../../components/header/header'
   import Footer from '../../../components/footer/footer'
-  import Breadcrumbs from '../../../components/widgets/breadcrumbs'
   export default {
     components: {
       Header,
       Footer,
-      Breadcrumbs,
       ValidationProvider,
       ValidationObserver
     },

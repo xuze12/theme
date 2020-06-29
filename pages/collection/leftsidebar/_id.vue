@@ -151,7 +151,6 @@
   import productBox1 from "../../../components/product-box/product-box1";
   import Header from "../../../components/header/header";
   import Footer from "../../../components/footer/footer";
-  import Breadcrumbs from "../../../components/widgets/breadcrumbs";
   import sidebar from "../../../components/widgets/collection-sidebar";
   import quickviewModel from "../../../components/widgets/quickview";
   import compareModel from "../../../components/widgets/compare-popup";
@@ -162,7 +161,6 @@
     components: {
       Header,
       Footer,
-      Breadcrumbs,
       productBox1,
       sidebar,
       quickviewModel,

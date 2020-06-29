@@ -18,8 +18,11 @@
             <tbody>
               <tr v-for="(item, index) in userAddressList" :key="index">
                 <td>
-                  <input type="radio" name="item.commonAddr" :value="item.addrId" :id="item.commonAddr"
-                    v-model="radioAddr" @click="onChoice(item.addrId)" />
+                  <input type="radio" name="item.commonAddr" :value="item.addrId" @click="onChoice(item.addrId)"
+                    v-model="new_radioAddr" />
+                  {{new_radioAddr}}
+                  {{item.addrId}}
+                  <span>{{item.commonAddr == 1 ? "默认" : ""}}</span>
                 </td>
                 <td>{{ item.receiver }}</td>
                 <td>
@@ -97,6 +100,7 @@
     computed: {
       ...mapState({
         userAddressList: (state) => state.addAddr.userAddressList,
+        radioAddr: (state) => state.addAddr.radioAddr,
       }),
       ...mapGetters({
         cart: "cart/cartItems",
@@ -104,19 +108,26 @@
         curr: "products/changeCurrency",
       }),
     },
+    watch: {
+      radioAddr(value) {
+        console.log("new_radioAddr=====>")
+        this.new_radioAddr = value
+        // return this.radioAddr;
+      }
+    },
     data() {
       return {
         picked: false,
         radio: 1,
-        radioAddr: 0,
         user: {},
+        new_radioAddr: ""
       };
+
     },
+
     async mounted() {
-      const commonAddrId = await this.getAddList();
-      if (commonAddrId) {
-        this.radioAddr = commonAddrId
-      }
+      await this.getAddList();
+      console.log("mounted-------")
     },
     methods: {
       ...mapActions(["getAddList", "delAddress", "defaultAddr"]),

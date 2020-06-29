@@ -10,38 +10,43 @@ export default {
   namespaced: true,
   state: {
     userAddressList: [],
+    radioAddr: "",
   },
 
   actions: {
     // 新增用户地址
     async postAddress(_, payload) {
-      console.log(payload, "payload----postAddress");
-      const params = {
-        addr: payload.address,
-        addrId: payload.addrId,
-        area: payload.area,
-        areaId: payload.areaId,
-        city: payload.city,
-        cityId: payload.cityId,
-        mobile: payload.phone,
-        province: payload.province,
-        provinceId: payload.provinceId,
-        receiver: payload.firstName,
-        postCode: payload.postCode,
-      };
+      try {
+        const params = {
+          addr: payload.address,
+          addrId: payload.addrId,
+          area: payload.area,
+          areaId: payload.areaId,
+          city: payload.city,
+          cityId: payload.cityId,
+          mobile: payload.phone,
+          province: payload.province,
+          provinceId: payload.provinceId,
+          receiver: payload.firstName,
+          postCode: payload.postCode,
+        };
 
-      const data = await postAddAddr(params);
-      const is_true = !(
-        data &&
-        typeof data === "object" &&
-        Reflect.has(data, "data") &&
-        Array.isArray(data.data)
-      );
+        const data = await postAddAddr(params);
+        alert("添加地址成功！");
 
-      if (is_true) {
-        return;
+        const is_true = !(
+          data &&
+          typeof data === "object" &&
+          Reflect.has(data, "data") &&
+          Array.isArray(data.data)
+        );
+
+        if (is_true) {
+          return;
+        }
+      } catch (err) {
+        alert("添加地址失败！");
       }
-      alert("添加地址成功！");
     },
 
     // 获取地址列表
@@ -63,9 +68,9 @@ export default {
       const commonItem = data.data.find((item) => item.commonAddr === 1);
 
       context.commit("save", {
-        userAddressList: data.data,
+        userAddressList: JSON.parse(JSON.stringify(data.data)),
+        radioAddr: commonItem.addrId,
       });
-      return commonItem.addrId;
     },
 
     // 删除订单用户地址
@@ -120,17 +125,16 @@ export default {
     },
 
     // 设置默认地址
-    async defaultAddr(context, payload) {
+    async defaultAddr({ dispatch }, payload) {
       try {
         console.log(payload, "设置默认地址");
         const params = payload;
         const data = await putDefaultAddr(params);
 
         console.log("addrList-----====");
+        dispatch("getAddList");
 
-        const addrList = await getAddressList();
-        console.log(addrList, "addrList-----");
-        context.commit("save", { userAddressList: addrList.data });
+        // commit("save", { userAddressList: addrList.data });
       } catch (err) {
         console.log(err);
       }

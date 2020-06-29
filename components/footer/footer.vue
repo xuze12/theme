@@ -69,7 +69,7 @@
       <div class="sub-footer" style="width:100%; text-align: center">
         <div class="container">
           <p>
-            <i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 themeforest powered by pixelstrap
+            <i class="fa fa-copyright" aria-hidden="true"></i> 2017-18 关于商城 经营许可证
           </p>
         </div>
 
