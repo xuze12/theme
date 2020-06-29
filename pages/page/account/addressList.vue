@@ -18,16 +18,18 @@
             <tbody>
               <tr v-for="(item, index) in userAddressList" :key="index">
                 <td>
-                  <input type="radio" name="item.commonAddr" :value="item.addrId" @click="onChoice(item.addrId)"
-                    v-model="new_radioAddr" />
-                  {{new_radioAddr}}
-                  {{item.addrId}}
+                  <input
+                    type="radio"
+                    name="item.commonAddr"
+                    :value="item.addrId"
+                    @click="onChoice(item.addrId)"
+                    v-model="new_radioAddr"
+                  />
+             
                   <span>{{item.commonAddr == 1 ? "默认" : ""}}</span>
                 </td>
                 <td>{{ item.receiver }}</td>
-                <td>
-                  {{ item.province }} {{ item.city }} {{ item.area }} {{ item.addr }}
-                </td>
+                <td>{{ item.province }} {{ item.city }} {{ item.area }} {{ item.addr }}</td>
                 <td>{{ item.mobile }}</td>
                 <td>
                   <button v-on:click="remove(item.addrId)">删除</button>
@@ -51,12 +53,17 @@
               <tr v-for="(item, index) in userAddressList" :key="index">
                 <td>
                   {{item.commonAddr == 1 ? "默认" : ""}}
-                  <input type="radio" name="item.commonAddr" :value="item.addrId" :id="item.commonAddr"
-                    v-model="radioAddr" @click="onChoice(item.addrId)" />
-                  {{ item.receiver }} {{ item.mobile }}</td>
-                <td>
-                  {{ item.province }} {{ item.city }} {{ item.area }} {{ item.addr }}
+                  <input
+                    type="radio"
+                    name="item.commonAddr.mobile"
+                    :value="item.addrId"
+                    :id="item.commonAddr"
+                    v-model="new_radioAddr"
+                    @click="onChoice(item.addrId)"
+                  />
+                  {{ item.receiver }} {{ item.mobile }}
                 </td>
+                <td>{{ item.province }} {{ item.city }} {{ item.area }} {{ item.addr }}</td>
                 <td>
                   <button v-on:click="remove(item.addrId)">删除</button>
                   <nuxt-link :to="{ path: '/page/account/address', query: item }">
@@ -73,72 +80,60 @@
   </div>
 </template>
 <script>
-  import VDistpicker from "v-distpicker";
-  import {
+import VDistpicker from "v-distpicker";
+import {
+  ValidationProvider,
+  ValidationObserver
+} from "vee-validate/dist/vee-validate.full.esm";
+import { mapGetters, mapState, createNamespacedHelpers } from "vuex";
+import Header from "../../../components/header/header";
+import Footer from "../../../components/footer/footer";
+
+const { mapActions } = createNamespacedHelpers("addAddr");
+export default {
+  components: {
+    VDistpicker,
+    Header,
+    Footer,
     ValidationProvider,
-    ValidationObserver,
-  } from "vee-validate/dist/vee-validate.full.esm";
-  import {
-    mapGetters,
-    mapState,
-    createNamespacedHelpers
-  } from "vuex";
-  import Header from "../../../components/header/header";
-  import Footer from "../../../components/footer/footer";
+    ValidationObserver
+  },
+  computed: {
+    ...mapState({
+      userAddressList: state => state.addAddr.userAddressList,
+      radioAddr: state => state.addAddr.radioAddr
+    }),
+    ...mapGetters({
+      cart: "cart/cartItems",
+      cartTotal: "cart/cartTotalAmount",
+      curr: "products/changeCurrency"
+    })
+  },
 
-  const {
-    mapActions
-  } = createNamespacedHelpers("addAddr");
-  export default {
-    components: {
-      VDistpicker,
-      Header,
-      Footer,
-      ValidationProvider,
-      ValidationObserver,
-    },
-    computed: {
-      ...mapState({
-        userAddressList: (state) => state.addAddr.userAddressList,
-        radioAddr: (state) => state.addAddr.radioAddr,
-      }),
-      ...mapGetters({
-        cart: "cart/cartItems",
-        cartTotal: "cart/cartTotalAmount",
-        curr: "products/changeCurrency",
-      }),
-    },
-    watch: {
-      radioAddr(value) {
-        console.log("new_radioAddr=====>")
-        this.new_radioAddr = value
-        // return this.radioAddr;
-      }
-    },
-    data() {
-      return {
-        picked: false,
-        radio: 1,
-        user: {},
-        new_radioAddr: ""
-      };
+  data() {
+    return {
+      picked: false,
+      radio: 1,
+      user: {},
+      new_radioAddr: 0
+    };
+  },
 
+  async mounted() {
+    await this.getAddList();
+
+    this.new_radioAddr = this.radioAddr;
+  },
+  methods: {
+    ...mapActions(["getAddList", "delAddress", "defaultAddr"]),
+    remove: function(index) {
+      this.delAddress(index);
+      // this.users.splice(index, 1)
     },
 
-    async mounted() {
-      await this.getAddList();
-      console.log("mounted-------")
-    },
-    methods: {
-      ...mapActions(["getAddList", "delAddress", "defaultAddr"]),
-      remove: function (index) {
-        this.delAddress(index);
-        // this.users.splice(index, 1)
-      },
-
-      onChoice(e) {
-        this.defaultAddr(e)
-      }
-    },
-  };
+    onChoice(e) {
+      this.defaultAddr(e);
+    }
+  }
+};
 </script>
