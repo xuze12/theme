@@ -4,6 +4,7 @@
   "description": "My awe-inspiring Nuxt.js project",
   "author": "pixelstrap",
   "private": true,
+  "homepage": "https://[xuze12].github.io/github-actions-demo",
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
