@@ -1892,7 +1892,10 @@ header {
 }
 
 .top-header {
-  background-color: $top-header;
+  background: $top-header;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 
   .header-contact {
     padding: 15px 0;
@@ -2105,6 +2108,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 9;
+  margin-top: 5%;
 
   &.product-full-page {
     z-index: 9999;

@@ -3825,13 +3825,8 @@ combined-stream@^1.0.5, combined-stream@^1.0.6, combined-stream@~1.0.5, combined
 
 commander@*:
   version "5.1.0"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/commander/download/commander-5.1.0.tgz?cache=0&sync_timestamp=1592632033071&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
-  integrity sha1-Rqu9FlL44Fm92u+Zu9yyrZzxea4=
-=======
   resolved "https://registry.npmjs.org/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
   integrity sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==
->>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
 
 commander@2.17.x:
   version "2.17.1"
@@ -4724,13 +4719,6 @@ dom-storage@2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/dom-storage/download/dom-storage-2.1.0.tgz#00fb868bc9201357ea243c7bcfd3304c1e34ea39"
   integrity sha1-APuGi8kgE1fqJDx7z9MwTB406jk=
-
-dom7@^2.1.3:
-  version "2.1.5"
-  resolved "https://registry.npm.taobao.org/dom7/download/dom7-2.1.5.tgz?cache=0&sync_timestamp=1589562150791&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdom7%2Fdownload%2Fdom7-2.1.5.tgz#a79411017800b31d8400070cdaebbfc92c1f6377"
-  integrity sha1-p5QRAXgAsx2EAAcM2uu/ySwfY3c=
-  dependencies:
-    ssr-window "^2.0.0"
 
 domain-browser@^1.1.1:
   version "1.2.0"
@@ -6118,13 +6106,8 @@ good-listener@^1.2.2:
 
 good-storage@^1.1.1:
   version "1.1.1"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/good-storage/download/good-storage-1.1.1.tgz#081501c01607d5fee2a214f94e8f5f9cb994789f"
-  integrity sha1-CBUBwBYH1f7iohT5To9fnLmUeJ8=
-=======
   resolved "https://registry.npmjs.org/good-storage/-/good-storage-1.1.1.tgz#081501c01607d5fee2a214f94e8f5f9cb994789f"
   integrity sha512-+0UEpRT03fJgEJoeTVVz41ISC5+jaQrDIWatQ4BoDQfOiBBsjNanymi9sAtLFdEAADQN0FYR8mGpeqxSCe8oXQ==
->>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
 
 got@^6.7.1:
   version "6.7.1"
@@ -8137,13 +8120,8 @@ mixin-deep@^1.2.0:
 
 mockjs@^1.1.0:
   version "1.1.0"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/mockjs/download/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
-  integrity sha1-5qDDeOkZBtuv8gkRzAJzs8fXWwY=
-=======
   resolved "https://registry.npmjs.org/mockjs/-/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
   integrity sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==
->>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
   dependencies:
     commander "*"
 
@@ -11497,16 +11475,6 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
-ssr-window@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/ssr-window/download/ssr-window-1.0.1.tgz?cache=0&sync_timestamp=1589301313510&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fssr-window%2Fdownload%2Fssr-window-1.0.1.tgz#30752a6a4666e7767f0b7e6aa6fc2fdbd0d9b369"
-  integrity sha1-MHUqakZm53Z/C35qpvwv29DZs2k=
-
-ssr-window@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npm.taobao.org/ssr-window/download/ssr-window-2.0.0.tgz?cache=0&sync_timestamp=1589301313510&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fssr-window%2Fdownload%2Fssr-window-2.0.0.tgz#98c301aef99523317f8d69618f0010791096efc4"
-  integrity sha1-mMMBrvmVIzF/jWlhjwAQeRCW78Q=
-
 ssri@^4.1.2, ssri@^4.1.6, ssri@~4.1.6:
   version "4.1.6"
   resolved "https://registry.npm.taobao.org/ssri/download/ssri-4.1.6.tgz#0cb49b6ac84457e7bdd466cb730c3cb623e9a25b"
@@ -11879,14 +11847,6 @@ sweet-scroll@4.0.0:
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/sweet-scroll/download/sweet-scroll-4.0.0.tgz#1f546157eb9754bb473780bb89546b1ca1ad9a25"
   integrity sha1-H1RhV+uXVLtHN4C7iVRrHKGtmiU=
-
-swiper@^4.0.7:
-  version "4.5.1"
-  resolved "https://registry.npm.taobao.org/swiper/download/swiper-4.5.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fswiper%2Fdownload%2Fswiper-4.5.1.tgz#ed43998e780ceb478610079c8d23fd425eca636f"
-  integrity sha1-7UOZjngM60eGEAecjSP9Ql7KY28=
-  dependencies:
-    dom7 "^2.1.3"
-    ssr-window "^1.0.1"
 
 table@^5.2.3:
   version "5.4.6"
@@ -12628,13 +12588,8 @@ uuid@~3.1.0:
 
 v-distpicker@^1.2.6:
   version "1.2.6"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/v-distpicker/download/v-distpicker-1.2.6.tgz#b73100f9cfbae974a8214c124b73d90b6542b2a9"
-  integrity sha1-tzEA+c+66XSoIUwSS3PZC2VCsqk=
-=======
   resolved "https://registry.npmjs.org/v-distpicker/-/v-distpicker-1.2.6.tgz#b73100f9cfbae974a8214c124b73d90b6542b2a9"
   integrity sha512-/yCeflDNQbzElol5dc6gCIqFGNOebqGNROD96BJazFBOmhhkHICwP5cvW+Zl4KvqskDnEhnvjOIVA4UJ1SbeGQ==
->>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
   dependencies:
     vue "^2.6.10"
 
@@ -12667,13 +12622,8 @@ vary@^1.1.2, vary@~1.1.2:
 
 vee-validate@^3.3.3:
   version "3.3.5"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/vee-validate/download/vee-validate-3.3.5.tgz#4988705f3cbf740e775ec16060f8cb90e7c8d4b5"
-  integrity sha1-SYhwXzy/dA53XsFgYPjLkOfI1LU=
-=======
   resolved "https://registry.npmjs.org/vee-validate/-/vee-validate-3.3.5.tgz#4988705f3cbf740e775ec16060f8cb90e7c8d4b5"
   integrity sha512-4yK9xxBBWYbKGR7qwiKPTtZ05T8R1LzhZfGPxBSfnZ9RPmfs07BcSeHjXJnE+dFrMvK6BNgBQHQ/ghV21eRhbQ==
->>>>>>> 8d321f8fb1a8278438f861ec247df6b71c9cde23
 
 vendors@^1.0.0:
   version "1.0.4"
@@ -12694,13 +12644,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz?cache=0&sync_timestamp=1572870717730&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvm-browserify%2Fdownload%2Fvm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
-vue-awesome-swiper@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.npm.taobao.org/vue-awesome-swiper/download/vue-awesome-swiper-3.1.3.tgz#05500b501ffb3fec9bf7eb9985bcf4ae8360ed9e"
-  integrity sha1-BVALUB/7P+yb9+uZhbz0roNg7Z4=
-  dependencies:
-    object-assign "^4.1.1"
-    swiper "^4.0.7"
+vue-awesome-swiper@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npm.taobao.org/vue-awesome-swiper/download/vue-awesome-swiper-4.1.1.tgz#8f7ab221ad003021d756b86aa618f429924900fe"
+  integrity sha1-j3qyIa0AMCHXVrhqphj0KZJJAP4=
 
 vue-class-component@^7.1.0:
   version "7.2.3"

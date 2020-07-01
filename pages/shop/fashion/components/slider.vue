@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="p-0" style="width: 100%;justify-content: center;display: inline-flex;">
+    <section class="p-0">
       <div class="slide-1 home-slider" style="width: 80%;">
         <div v-swiper:mySwiper="swiperOption">
           <div class="swiper-wrapper">
