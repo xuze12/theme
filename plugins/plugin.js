@@ -1,5 +1,5 @@
 import Vue from "vue";
-import VueAwesomeSwiper from "vue-awesome-swiper/dist/ssr";
+import VueAwesomeSwiper from "vue-awesome-swiper";
 import Vue2Filters from "vue2-filters";
 import { VueMasonryPlugin } from "vue-masonry";
 import InfiniteLoading from "vue-infinite-loading";
