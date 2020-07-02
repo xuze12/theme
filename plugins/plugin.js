@@ -10,6 +10,7 @@ import ProductZoomer from "vue-product-zoomer";
 import VueScrollTo from "vue-scrollto";
 import scroll from "vue-seamless-scroll";
 import Toasted from 'vue-toasted';
+import VueRouter from 'vue-router';
 
 Vue.use(VueAwesomeSwiper);
 Vue.use(Vue2Filters);
@@ -21,6 +22,7 @@ Vue.use(ProductZoomer);
 Vue.use(VueScrollTo);
 Vue.use(scroll);
 Vue.use(Toasted)
+Vue.use(VueRouter)
 
 // const config = {
 //   apiKey: "Your API Key",

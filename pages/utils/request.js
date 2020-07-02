@@ -38,7 +38,9 @@ axios.interceptors.response.use(
       });
 
       localStorage.clear();
-      window.location.href = '/page/account/login-firebase'
+      // console.log(Vue, "Vue.$router")
+      $nuxt.$router.replace('/page/account/login-firebase')
+      // window.location.href = '/page/account/login-firebase'
     } else if (status === 400) {
       console.log('121221')
       Vue.toasted.show(data, {
