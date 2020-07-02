@@ -16,7 +16,7 @@
                   <ul class="search-results" v-if="searchProdList.length" style="position:absolute">
                     <li v-for="(product,index) in searchProdList" :key="index" class="product-box"
                       :style="{'padding-top':'20px', 'width' : '20vw', 'background': '#fff', 'display': 'inline-flex'}"
-                      @click="goToProductDetail(product)">
+                      @mousedown="goToProductDetail(product)">
                       <div class="img-wrapper" style="width:20%">
                         <img :src="'http://img-test.gz-yami.com/'+ product.pic" class="img-fluid bg-img"
                           :style="{display:'block'}" :key="index" />

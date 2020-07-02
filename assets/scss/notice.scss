@@ -1,6 +1,6 @@
 .warp {
   height: 30px;
-  width: 360px;
+  width: 80%;
   overflow: hidden;
   margin: 0 auto;
   margin-top: 20px;
@@ -13,9 +13,12 @@
 }
 
 .warp li {
-  height: 30px;
-  line-height: 30px;
+  line-height: 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   font-size: 15px;
+}
+
+.warp li h3 {
+  color: #dd0c0c;
 }

@@ -5,17 +5,17 @@
         <div class="row partition2">
           <div class="col-md-6" v-for="(item, index) in items" :key="index">
             <!-- <nuxt-link > -->
-              <div class="collection-banner p-right text-center">
-                <div class="img-part">
-                  <img :src="item.imagepath" class="img-fluid" alt />
-                </div>
-                <div class="contain-banner">
-                  <div>
-                    <h4>{{item.subtitle}}</h4>
-                    <h2>{{item.title}}</h2>
-                  </div>
+            <div class="collection-banner p-right text-center">
+              <div class="img-part">
+                <img :src="item.imagepath" class="img-fluid" alt />
+              </div>
+              <div class="contain-banner">
+                <div>
+                  <h4>{{item.subtitle}}</h4>
+                  <h2>{{item.title}}</h2>
                 </div>
               </div>
+            </div>
             <!-- </nuxt-link> -->
           </div>
         </div>
