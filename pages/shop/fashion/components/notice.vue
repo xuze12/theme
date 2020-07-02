@@ -4,7 +4,7 @@
       <ul class="item">
         <li v-for="(item,index) in products " :key="item.date +'_'+index">
           <nuxt-link class="title" :to="{ path: '/blog/' + item.id }">
-            <span class="title">通 知 🎉 ： {{ item.title }}</span>
+            <h3 class="title">通 知 🎉 ： {{ item.title }}</h3>
           </nuxt-link>
         </li>
       </ul>
