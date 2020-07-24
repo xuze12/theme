@@ -19,7 +19,7 @@
                 <tr>
                   <td>
                     <nuxt-link :to="{ path: '/product/sidebar/'+item.prodId}">
-                      <img :src="'http://img-test.gz-yami.com/'+item.pic" :alt="item.brief">
+                      <img :src="'http://shop-qiniu.redbellnet.com/'+item.pic" :alt="item.brief">
                     </nuxt-link>
                   </td>
                   <td>

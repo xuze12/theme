@@ -1,25 +1,25 @@
 <template>
-  <div>
+  <div class="product-box-border">
     <div class="img-wrapper" style="margin-botton:20px">
-      <div class="front" style="width:100%;height:25vh;text-align:center;">
+      <div class="front product-img">
         <nuxt-link :to="{ path: '/product/sidebar/'+product.prodId}">
-          <img :src="'http://img-test.gz-yami.com/' + product.pic" :id="product.prodId" class="img-fluid bg-img"
-            :alt="product.title" :key="index" style="height:100%" />
+          <img :src="'http://shop-qiniu.redbellnet.com/' + product.pic" :id="product.prodId" class="img-fluid bg-img"
+            :alt="product.title" :key="index" />
         </nuxt-link>
       </div>
     </div>
-    <div class="product-detail" style="text-align: center">
-      <nuxt-link :to="{ path: '/product/sidebar/'+product.prodId}">
-        <h6 class="h6-name">
-          {{ product.prodName }}</h6>
-      </nuxt-link>
-
+    <div class="product-detail product-price">
       <h4 v-if="product.oriPrice">
         ￥{{ product.price }}
         <del>{{ product.oriPrice }}</del>
       </h4>
-      <h4 v-else style="line-height:30px;padding-bottom:20px">￥{{ product.price }}</h4>
 
+      <h4 v-else>￥{{ product.price }}</h4>
+
+      <nuxt-link :to="{ path: '/product/sidebar/'+product.prodId}">
+        <h6 class="h6-name">
+          {{ product.prodName }}</h6>
+      </nuxt-link>
     </div>
   </div>
 </template>

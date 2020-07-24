@@ -13,8 +13,8 @@
                       <div class="swiper-wrapper">
                         <div class="swiper-slide" v-for="(item, index) in (prodInfo.imgs || '').split(',')"
                           :key="index">
-                          <img :src="'http://img-test.gz-yami.com/' + item" :id="prodInfo.shopId"
-                            class="img-fluid bg-img" :alt="prodInfo.brief" />
+                          <img :src="'http://shop-qiniu.redbellnet.com/' + item" :id="prodInfo.shopId"
+                            class="img-fluid bg-img" :alt="prodInfo.brief" style="width:100%" />
                         </div>
                       </div>
                     </div>
@@ -24,7 +24,7 @@
                           <div class="swiper-wrapper">
                             <div class="swiper-slide" v-for="(item, index) in (prodInfo.imgs || '').split(',')"
                               :key="index" style="width: 50%;">
-                              <img :src="'http://img-test.gz-yami.com/' + item" :id="prodInfo.shopId"
+                              <img :src="'http://shop-qiniu.redbellnet.com/' + item" :id="prodInfo.shopId"
                                 class="img-fluid bg-img" :alt="prodInfo.brief" @click="slideTo(index)" />
                             </div>
                           </div>
@@ -167,7 +167,7 @@
                               rows="6"></textarea>
                           </div>
                           <div class="col-md-12">
-                            <button class="btn btn-solid" type="submit">提交您的评论</button>
+                            <button class="btn btn-solid">提交您的评论</button>
                           </div>
                         </div>
                       </form>
@@ -268,6 +268,7 @@
         "getProdInfo",
         "getMoreBuyProdList",
         "prodCommPageByProd",
+        "addProdComm",
         "addOrCancel",
         "changeSkuId",
         "totalStocksCincrement"

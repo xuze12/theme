@@ -18,9 +18,11 @@
               </thead>
               <tbody v-for="(item,index) in shopCartInfo" :key="index">
                 <tr>
-                  <td>
+                  <td style="display: inline-flex; align-items: center;">
+                    <input type="checkbox" :id="item.prodId" :value="item.prodId" v-model="new_prodId"
+                      @change="checkButton" style="margin-right: 10px;" />
                     <nuxt-link :to="{ path: '/product/sidebar/'+item.prodId}">
-                      <img :src="'http://img-test.gz-yami.com/'+ item.pic" alt />
+                      <img :src="'http://shop-qiniu.redbellnet.com/'+ item.pic" alt />
                     </nuxt-link>
                   </td>
                   <td>
@@ -37,7 +39,7 @@
                               </button>
                             </span>
                             <input type="text" name="quantity" :disabled="item.prodCount > item.stock"
-                              class="form-control input-number" v-model="item.prodCount" />
+                              class="form-control input-number" v-model="item.prodCount" style="padding: 0px;" />
                             <span class="input-group-prepend">
                               <button type="button" class="btn quantity-right-plus" data-type="plus" data-field
                                 @click="increment(item)">
@@ -98,7 +100,7 @@
                 <tr>
                   <td>总价 :</td>
                   <td>
-                    <h2>{{ calTotalPrice }}</h2>
+                    <h2>￥{{ calTotalPrice }}</h2>
                   </td>
                 </tr>
               </tfoot>
@@ -120,7 +122,12 @@
             <nuxt-link :to="{ path: '/'}" :class="'btn btn-solid'">继续购物</nuxt-link>
           </div>
           <div class="col-6">
-            <nuxt-link :to="{ path: '/page/account/purchase'}" :class="'btn btn-solid'">购买</nuxt-link>
+            <!--<nuxt-link :to="{ path: '/page/account/purchase'}" :class="'btn btn-solid'">
+            结算（{{ this.new_prodId.length }}）
+            </nuxt-link>-->
+            <a :class="'btn btn-solid'" @click="onSubmit(new_prodId)">
+              结算（{{ this.new_prodId.length }}）
+            </a>
           </div>
         </div>
       </div>
@@ -144,7 +151,9 @@
   export default {
     data() {
       return {
-        counter: 1
+        counter: 1,
+        new_prodId: [],
+        calTotalPrice: 0,
       };
     },
     components: {
@@ -166,21 +175,6 @@
           this.$route.params.id
         );
       },
-      calTotalPrice() {
-        const list = this.shopCartInfo;
-        let cal_total_price = 0;
-        if (list.length === 0) {
-          cal_total_price = 0;
-        } else {
-
-          for (var i = 0; i < list.length; i++) {
-            cal_total_price += list[i].productTotalAmount
-          }
-        }
-        return cal_total_price.toFixed(2);
-
-      }
-
     },
     mounted() {
       this.getShopCart({
@@ -199,15 +193,53 @@
           item
         )
       },
-      increment(product, qty) {
+      async increment(product, qty) {
         console.log("++")
-        this.plus(product)
+        await this.plus(product)
+        this.checkButton();
       },
-      decrement(product, qty) {
+      async decrement(product, qty) {
         console.log("--")
-        this.reduce(product)
+        await this.reduce(product)
+        this.checkButton();
       },
+      checkButton() {
+        const list = this.shopCartInfo;
 
+        if (this.new_prodId.length === 0) {
+          this.calTotalPrice = 0;
+          return;
+        }
+
+        let totalPrice = 0
+
+        for (let item of list) {
+
+          const hasitem = this.new_prodId.find(i => i === item.prodId);
+          if (hasitem) {
+            totalPrice += item.price * item.prodCount;
+          }
+        }
+        this.calTotalPrice = totalPrice.toFixed(2);
+
+      },
+      onSubmit(e) {
+        console.log(e, '-----------onSubmit')
+        const list = this.shopCartInfo;
+
+        if (this.new_prodId.length === 0) {
+          this.calTotalPrice = 0;
+          return;
+        }
+
+        let totalPrice = 0
+
+        for (let item of list) {
+
+          const hasitem = this.new_prodId.find(i => i === item.prodId);
+          console.log(hasitem, '------hasitem')
+        }
+      }
     }
   };
 </script>

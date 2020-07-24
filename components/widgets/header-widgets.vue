@@ -18,7 +18,7 @@
                       :style="{'padding-top':'20px', 'width' : '20vw', 'background': '#fff', 'display': 'inline-flex'}"
                       @mousedown="goToProductDetail(product)">
                       <div class="img-wrapper" style="width:20%">
-                        <img :src="'http://img-test.gz-yami.com/'+ product.pic" class="img-fluid bg-img"
+                        <img :src="'http://shop-qiniu.redbellnet.com/'+ product.pic" class="img-fluid bg-img"
                           :style="{display:'block'}" :key="index" />
                       </div>
                       <div class="product-detail">
@@ -55,7 +55,7 @@
                         <li v-for="(product,index) in searchProdList" :key="index" class="product-box"
                           :style="{'padding-top':'20px'}" @click="goToProductDetail(product)">
                           <div class="img-wrapper">
-                            <img :src="'http://img-test.gz-yami.com/'+ product.pic" class="img-fluid bg-img"
+                            <img :src="'http://shop-qiniu.redbellnet.com/'+ product.pic" class="img-fluid bg-img"
                               :style="{display:'block'}" :key="index" />
                           </div>
                           <div class="product-detail">

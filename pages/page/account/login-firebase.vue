@@ -24,6 +24,13 @@
                     placeholder="Enter your password" required />
                 </div>
                 <a class="btn-solid btn" href="javascript:void(0)" @click="signUp">登录</a>
+                <span>
+                  如果您还没注册请点这里
+                  <nuxt-link :to="{ path: '/page/account/register'}">
+                    注册
+                  </nuxt-link>
+                </span>
+
               </form>
             </div>
           </div>

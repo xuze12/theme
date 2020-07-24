@@ -13,6 +13,7 @@ import shopCart from "./modules/shopCart";
 import notice from "./modules/notice";
 import search from "./modules/search";
 import addAddr from "./modules/addAddr";
+import register from "./modules/register";
 Vue.use(Vuex);
 const createStore = () => {
   return new Vuex.Store({
@@ -29,6 +30,7 @@ const createStore = () => {
       notice,
       search,
       addAddr,
+      register,
     },
   });
 };

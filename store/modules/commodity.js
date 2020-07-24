@@ -4,6 +4,7 @@ import {
   getMoreBuyProdList,
   getProdListByTagId,
   getProdComm,
+  postProdComm,
   getCollection,
   postAddOrCancel,
   getCategorys,
@@ -75,6 +76,7 @@ export default {
         hlh_pages: pages,
       });
     },
+
     // 获取分类列表
     async getCategoryList(context, payload) {
       const { data } = await getCategorys();
@@ -86,6 +88,7 @@ export default {
 
       context.commit("save", { categoryList: data });
     },
+
     // 通过分类id商品列表
     async getPageProdsList({ commit, dispatch }, payload) {
       commit("save", {
@@ -121,6 +124,7 @@ export default {
       // console.log(data, "商品详情页");
       context.commit("save", { prodInfo: data, totalStocks: data.totalStocks });
     },
+
     //切换类型
     changeSkuId(context, payload) {
       context.commit("save", {
@@ -128,6 +132,7 @@ export default {
         totalStocks: payload.stocks === -1 ? 99999 : payload.stocks,
       });
     },
+
     // 改变库存值
     changeTotalStocks(context, payload) {
       context.commit("save", { totalStocks: payload.stocks - 1 });
@@ -199,7 +204,15 @@ export default {
         size: 10,
       };
       const data = await getProdComm(params);
-      console.log(data.data, "data--------prodCommPageByProd");
+      console.log(data.data, "data--------根据商品返回评论分页数据");
+    },
+
+    // 添加评论
+    async addProdComm(context, payload) {
+      console.log("--------添加评论");
+
+      const data = await postProdComm(params);
+      console.log(data, "添加评论");
     },
 
     // 获取用户收藏商品列表

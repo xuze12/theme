@@ -154,7 +154,7 @@
                 <div>
                   <div class="media" v-for="(item,index) in records" :key="index">
                     <nuxt-link :to="{ path: '/product/sidebar/'+item.prodId}" style="width:50%">
-                      <img class="img-fluid" :src="'http://img-test.gz-yami.com/' + item.pic" :alt="item.shopName"
+                      <img class="img-fluid" :src="'http://shop-qiniu.redbellnet.com/' + item.pic" :alt="item.shopName"
                         style="width:100%" />
                     </nuxt-link>
                     <div class="media-body align-self-center">

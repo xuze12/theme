@@ -9,6 +9,7 @@ const {
   category_list,
   page_prod_list,
   prod_Info,
+  prod_comm_page_by_prod,
   prod_comm,
   lasted_prod_page,
   more_buy_prod_list,
@@ -26,6 +27,7 @@ const {
   delete_addr,
   update_addr,
   default_addr,
+  register,
 } = api;
 
 import request from "../utils/request";
@@ -89,10 +91,19 @@ export function getProdInfo(params) {
   });
 }
 
-// 评论
+// 根据商品返回评论分页数据
 export function getProdComm(params) {
   return request({
     method: "get",
+    url: prod_comm_page_by_prod,
+    data: JSON.stringify(params),
+  });
+}
+
+// 添加评论
+export function postProdComm(params) {
+  return request({
+    method: "post",
     url: prod_comm,
     data: JSON.stringify(params),
   });
@@ -209,7 +220,7 @@ export function getAddressList() {
 export function deleteAddr(params) {
   return request({
     method: "delete",
-    url: `${delete_addr}/${params}`,
+    url: `${delete_addr}/${stringify(params)}`,
   });
 }
 
@@ -222,9 +233,19 @@ export function putUpdateAddr(params) {
   });
 }
 
+// 设置默认地址
 export function putDefaultAddr(params) {
   return request({
     method: "put",
     url: `${default_addr}/${params}`,
+  });
+}
+
+// 注册
+export function putRegister(params) {
+  return request({
+    method: "post",
+    url: register,
+    data: JSON.stringify(params),
   });
 }

@@ -3,6 +3,9 @@
 @import 'vue2-animate/dist/vue2-animate.min.css';
 @import 'vue-slider-component/dist-css/vue-slider-component.css';
 @import 'vue-image-lightbox/dist/vue-image-lightbox.min.css';
+@import 'element-ui/lib/theme-chalk/index.css';
+
+
 $themeColor: #ff4c3b;
 @import '~vue-slider-component/lib/theme/default.scss';
 @import 'landing_page.scss';
@@ -47,16 +50,6 @@ $themeColor: #ff4c3b;
   height: 100%;
 }
 
-.h6-name {
-  height: 50px;
-  line-height: 25px;
-  margin: 15px 0 0px 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
 
 .x-blog-container {
   p {
@@ -93,4 +86,57 @@ $themeColor: #ff4c3b;
   width: 100%;
   justify-content: center;
   display: inline-flex;
+}
+
+
+.product-box-border {
+  width: 100%;
+  border: 1px solid #ccc;
+
+  @media(max-width: 500px) {
+    .product-img {
+      width: 100%;
+      height: 300px;
+      text-align: center;
+      position: relative;
+    }
+  }
+
+  .product-img {
+    width: 100%;
+    height: 330px;
+    text-align: center;
+    position: relative;
+  }
+
+  .product-price {
+    width: calc(100% - 2px);
+    height: 100px;
+    background-color: #fff;
+    text-align: left;
+    position: absolute;
+    bottom: 1px;
+
+    h4 {
+      line-height: 30px;
+      color: red
+    }
+
+    .h6-name {
+      line-height: 24px;
+      margin: 15px 0 0px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+  }
+}
+
+@media (max-width: 1430px) {
+  .cart-section tbody tr td .qty-box .input-group .form-control {
+    width: 55px;
+  }
 }

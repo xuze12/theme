@@ -1,4 +1,4 @@
-const url ='http://119.23.227.173:9901';
+const url = "http://119.23.227.173:9901";
 // const url = '/api'
 export const api = {
   email_login: url + "/mail/login",
@@ -9,7 +9,8 @@ export const api = {
   page_prod_list: url + "/prod/pageProd", // 加载分类列表
   home_tag_prod_list: url + "/prod/tagProdList", // 首页所有标签商品接口
   prod_Info: url + "/prod/prodInfo", //商品详情
-  prod_comm: url + "/prodComm/prodCommPageByProd", //评论
+  prod_comm_page_by_prod: url + "/prodComm/prodCommPageByProd", // 根据商品返回评论分页数据
+  prod_comm: url + "/prodComm", // 添加评论
   lasted_prod_page: url + "/prod/lastedProdPage", //新品推荐
   more_buy_prod_list: url + "/prod/moreBuyProdList", //每日疯抢
   shop_cart: url + "/p/shopCart/info", //购物车信息
@@ -26,4 +27,5 @@ export const api = {
   delete_addr: url + "/p/address/deleteAddr", // 删除订单用户地址
   update_addr: url + "/p/address/updateAddr", //修改订单用户地址
   default_addr: url + "/p/address/defaultAddr", //设置默认地址
+  register: url + "/p/user/register", //注册
 };

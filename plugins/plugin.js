@@ -9,8 +9,9 @@ import VueLazyLoad from "vue-lazyload";
 import ProductZoomer from "vue-product-zoomer";
 import VueScrollTo from "vue-scrollto";
 import scroll from "vue-seamless-scroll";
-import Toasted from 'vue-toasted';
-import VueRouter from 'vue-router';
+import Toasted from "vue-toasted";
+import VueRouter from "vue-router";
+import ElementUI from "element-ui";
 
 Vue.use(VueAwesomeSwiper);
 Vue.use(Vue2Filters);
@@ -21,9 +22,9 @@ Vue.use(VueLazyLoad);
 Vue.use(ProductZoomer);
 Vue.use(VueScrollTo);
 Vue.use(scroll);
-Vue.use(Toasted)
-Vue.use(VueRouter)
-
+Vue.use(Toasted);
+Vue.use(VueRouter);
+Vue.use(ElementUI);
 // const config = {
 //   apiKey: "Your API Key",
 //   authDomain: "Your Auth Domain",
