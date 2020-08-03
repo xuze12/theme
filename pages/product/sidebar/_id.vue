@@ -167,7 +167,7 @@
                               rows="6"></textarea>
                           </div>
                           <div class="col-md-12">
-                            <button class="btn btn-solid">提交您的评论</button>
+                            <button class="btn btn-solid" @click="prodCommSubmit">提交您的评论</button>
                           </div>
                         </div>
                       </form>
@@ -185,6 +185,8 @@
         <img src="../../../assets/images/size-chart.jpg" alt="size-chart" class="img-fluid" />
       </b-modal>
     </section>
+    <Services />
+
     <Footer />
   </div>
 </template>
@@ -199,6 +201,7 @@
   import Footer from "../../../components/footer/footer";
   import Breadcrumbs from "../../../components/widgets/breadcrumbs";
   import Timer from "../../../components/widgets/timer";
+  import Services from "../../shop/fashion/components/services";
 
   import sidebar from "../../../components/widgets/collection-sidebar";
   import relatedProduct from "../../../components/widgets/related-products";
@@ -212,6 +215,7 @@
       Footer,
       Breadcrumbs,
       Timer,
+      Services,
       // productSidebar,
       sidebar,
       relatedProduct
@@ -336,6 +340,10 @@
       slideTo(id) {
         this.swiper().slideTo(id, 1000, false);
       },
+      prodCommSubmit() {
+        console.log("-----------prodCommSubmit")
+        this.addProdComm()
+      }
 
     }
   };

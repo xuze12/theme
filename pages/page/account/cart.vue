@@ -98,7 +98,7 @@
             <table class="table cart-table table-responsive-md" v-if="shopCartInfo.length">
               <tfoot>
                 <tr>
-                  <td>总价 :</td>
+                  <td>合计 :</td>
                   <td>
                     <h2>￥{{ calTotalPrice }}</h2>
                   </td>
@@ -122,12 +122,12 @@
             <nuxt-link :to="{ path: '/'}" :class="'btn btn-solid'">继续购物</nuxt-link>
           </div>
           <div class="col-6">
-            <!--<nuxt-link :to="{ path: '/page/account/purchase'}" :class="'btn btn-solid'">
-            结算（{{ this.new_prodId.length }}）
-            </nuxt-link>-->
-            <a :class="'btn btn-solid'" @click="onSubmit(new_prodId)">
+            <nuxt-link :to="{ path: '/page/account/purchase'}" :class="'btn btn-solid'">
               结算（{{ this.new_prodId.length }}）
-            </a>
+            </nuxt-link>
+            <!--<a :class="'btn btn-solid'" @click="onSubmit(new_prodId)">
+              结算（{{ this.new_prodId.length }}）
+            </a>-->
           </div>
         </div>
       </div>
