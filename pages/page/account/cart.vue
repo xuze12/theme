@@ -122,12 +122,12 @@
             <nuxt-link :to="{ path: '/'}" :class="'btn btn-solid'">继续购物</nuxt-link>
           </div>
           <div class="col-6">
-            <nuxt-link :to="{ path: '/page/account/purchase'}" :class="'btn btn-solid'">
+            <!--<nuxt-link :to="{ path: '/page/account/purchase'}" :class="'btn btn-solid'">
               结算（{{ this.new_prodId.length }}）
-            </nuxt-link>
-            <!--<a :class="'btn btn-solid'" @click="onSubmit(new_prodId)">
+            </nuxt-link>-->
+            <a :class="'btn btn-solid'" @click="onSubmit(new_prodId)">
               结算（{{ this.new_prodId.length }}）
-            </a>-->
+            </a>
           </div>
         </div>
       </div>
@@ -235,9 +235,10 @@
         let totalPrice = 0
 
         for (let item of list) {
-
+          console.log(item, 'shopCartInfo------')
           const hasitem = this.new_prodId.find(i => i === item.prodId);
-          console.log(hasitem, '------hasitem')
+          console.log(hasitem === item.prodId, '------hasitem')
+
         }
       }
     }

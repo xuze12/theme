@@ -140,10 +140,12 @@
                           </el-col>
                           <el-col :span="24">
                             <el-form-item label="验证码" prop="code">
-                              <el-input type="code" v-model="ruleForm.code" placeholder="请输入验证码" style="width: 60%">
+                              <el-input type="code" v-model="ruleForm.code" placeholder="请输入验证码" >
                               </el-input>
-                              <span v-show="show" @click="getCode">获取验证码</span>
-                              <span v-show="!show" class="count">{{ count }} s</span>
+                              <div style="position: absolute;display: inline-flex;width: 100px;margin-left: 10px;">
+                                <span v-show="show" @click="getCode">获取验证码</span>
+                                <span v-show="!show" class="count">{{ count }} s</span>
+                              </div>
                             </el-form-item>
                           </el-col>
                         </el-row>
