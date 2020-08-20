@@ -3,8 +3,15 @@
     <Header />
     <section class="section-b-space">
       <div class="container">
-        <div class="checkout-page">
-          <h3 style="width:100%;text-align:center">购买成功</h3>
+        <div class="checkout-page" v-if='this.$route.query.item'>
+          <div class="checkout-img">
+              <img :src="'http://shop-qiniu.redbellnet.com/'+ this.$route.query.item.pic" alt />
+          </div>
+          <h4 class="checkout-prodName"> {{ this.$route.query.item.prodName }}</h4>
+          <h3 class="checkout-h3">购买成功</h3>
+        </div>
+        <div class="checkout-page" v-else>
+          <h3 class="checkout-h3">购买成功</h3>
         </div>
       </div>
     </section>
@@ -61,6 +68,9 @@
         },
         amtchar: ''
       }
+    },
+    computed: {
+      
     },
     methods: {
       order() {

@@ -28,4 +28,5 @@ export const api = {
   update_addr: url + "/p/address/updateAddr", //修改订单用户地址
   default_addr: url + "/p/address/defaultAddr", //设置默认地址
   register: url + "/p/user/register", //注册
+  password: url + "/sys/user/password", // 修改密码
 };

@@ -235,9 +235,17 @@
         let totalPrice = 0
 
         for (let item of list) {
-          console.log(item, 'shopCartInfo------')
           const hasitem = this.new_prodId.find(i => i === item.prodId);
           console.log(hasitem === item.prodId, '------hasitem')
+          if (hasitem === item.prodId) {
+            console.log(item, '9999')
+            this.$router.push({
+              path: '/page/account/purchase',
+              query: {
+                item: item
+              }
+            })
+          }
 
         }
       }

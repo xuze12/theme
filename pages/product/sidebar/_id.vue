@@ -100,7 +100,7 @@
                       <div class="product-buttons">
                         <button class="btn btn-solid" title="加入购物车" @click="newaddToCart(prodInfo, counter)"
                           :disabled=" totalStocks === 0">加入购物车</button>
-                        <nuxt-link :to="{ path: '/page/account/purchase' }">
+                        <nuxt-link :to="{ path: '/page/account/purchase',query: {item: prodInfo} }">
                           <button class="btn btn-solid" title="立即购买" @click="buyNow(prodInfo, counter)"
                             :disabled="totalStocks === 0">立即购买</button>
                         </nuxt-link>

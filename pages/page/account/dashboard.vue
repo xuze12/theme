@@ -129,23 +129,13 @@
                           </el-col>
                           <el-col :span="24">
                             <el-form-item label="新密码" prop="newPsd">
-                              <el-input type="newPsd" v-model="ruleForm.newPsd" placeholder="请输入新密码"></el-input>
+                              <el-input type="password" v-model="ruleForm.newPsd" placeholder="请输入新密码"></el-input>
                             </el-form-item>
                           </el-col>
                           <el-col :span="24">
                             <el-form-item label="确认新密码" prop="checkNewPsd">
                               <el-input type="password" v-model="ruleForm.checkNewPsd" placeholder="请再次输入新密码">
                               </el-input>
-                            </el-form-item>
-                          </el-col>
-                          <el-col :span="24">
-                            <el-form-item label="验证码" prop="code">
-                              <el-input type="code" v-model="ruleForm.code" placeholder="请输入验证码" >
-                              </el-input>
-                              <div style="position: absolute;display: inline-flex;width: 100px;margin-left: 10px;">
-                                <span v-show="show" @click="getCode">获取验证码</span>
-                                <span v-show="!show" class="count">{{ count }} s</span>
-                              </div>
                             </el-form-item>
                           </el-col>
                         </el-row>
@@ -171,6 +161,11 @@
 </template>
 <script>
   import {
+    mapState,
+    mapGetters,
+    createNamespacedHelpers
+  } from "vuex";
+  import {
     ValidationProvider,
     ValidationObserver,
   } from "vee-validate/dist/vee-validate.full.esm";
@@ -178,6 +173,10 @@
   import Header from "../../../components/header/header";
   import Footer from "../../../components/footer/footer";
   import Breadcrumbs from "../../../components/widgets/breadcrumbs";
+
+  const {
+    mapActions
+  } = createNamespacedHelpers("changePassword");
   export default {
     components: {
       Header,
@@ -187,7 +186,8 @@
     data() {
       //此处即表单发送之前验证
       let validatePass = (rule, value, callback) => {
-        if (value === "") {
+        console.log(value, 'value')
+        if (value !== "" && value !== undefined) {
           if (this.ruleForm.checkNewPsd !== "") {
             this.$refs.ruleForm.validateField("checkNewPsd");
           }
@@ -197,12 +197,15 @@
         }
       };
       let validatePass2 = (rule, value, callback) => {
-        if (value === "") {
+        console.log(value, 'validatePass2')
+
+        if (value !== "" && value !== undefined) {
+          if (value !== this.ruleForm.newPsd) {
+            callback(new Error("两次输入密码不一致!"));
+          }
           callback();
-        } else if (value !== this.ruleForm.newPsd) {
-          callback(new Error("两次输入密码不一致!"));
         } else {
-          callback(new Error("请再次输入密码"));
+          callback(new Error("请输入确认密码"));
         }
       };
 
@@ -229,16 +232,15 @@
             validator: validatePass2,
             trigger: "blur",
           }, ],
-          code: [{
-            required: true,
-            message: "请输入验证码",
-            trigger: "blur",
-          }, ],
           old_password: ""
         },
       };
     },
+    mounted() {
+      (console.log('=============userPassword'))
+    },
     methods: {
+      ...mapActions(['userPassword']),
       getCode() {
 
         if (!this.ruleForm.oldPsd == "") {
@@ -266,15 +268,15 @@
       },
       onSave() {
         console.log(this.ruleForm, "-----onSave");
-        if (!this.ruleForm.newPsd == "" && this.ruleForm.checkNewPsd == "" && this.ruleForm.code == "") {
-          console.log("提交---onSave");
+        if (!this.ruleForm.newPsd == "" && this.ruleForm.checkNewPsd == "") {
+          console.log("空空乳液---onSave");
 
         } else {
           this.$refs.ruleForm.validateField("oldPsd")
           this.$refs.ruleForm.validateField("newPsd")
           this.$refs.ruleForm.validateField("checkNewPsd")
-          this.$refs.ruleForm.validateField("code")
-          console.log("空空如也---onSave");
+          console.log("提交---onSave");
+          this.userPassword(this.ruleForm)
           return;
         }
       },

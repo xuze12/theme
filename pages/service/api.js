@@ -28,6 +28,7 @@ const {
   update_addr,
   default_addr,
   register,
+  password,
 } = api;
 
 import request from "../utils/request";
@@ -246,6 +247,15 @@ export function putRegister(params) {
   return request({
     method: "post",
     url: register,
+    data: JSON.stringify(params),
+  });
+}
+
+// 修改密码
+export function postPassword(params) {
+  return request({
+    method: "post",
+    url: password,
     data: JSON.stringify(params),
   });
 }

@@ -14,6 +14,7 @@ import notice from "./modules/notice";
 import search from "./modules/search";
 import addAddr from "./modules/addAddr";
 import register from "./modules/register";
+import changePassword from "./modules/changePassword";
 Vue.use(Vuex);
 const createStore = () => {
   return new Vuex.Store({
@@ -31,6 +32,7 @@ const createStore = () => {
       search,
       addAddr,
       register,
+      changePassword,
     },
   });
 };
