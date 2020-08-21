@@ -107,11 +107,11 @@ export default {
   data() {
     return {
       title_1: '免费送货',
-      subtitle_1: '免费送货',
+      subtitle_1: '放心与舒心,我们随时给您呈送 ',
       title_2: '关于退换货',
       subtitle_2: '所有宝贝付款后24小时内发货，支持7天无理由退换货',
       title_3: '节日优惠',
-      subtitle_3: '网上特别节日优惠'
+      subtitle_3: '十一狂欢豪礼派送全天不停'
     }
   }
 }

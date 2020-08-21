@@ -1,27 +1,22 @@
-import Menu from '../../data/menu'
-
-// import Menu from '../../data/xz_menu'
+import Menu from "../../data/menu";
 
 const state = {
-  data: Menu.data
-}
+  data: Menu.data,
+};
 
 // getters
-const getters = {
-}
+const getters = {};
 
 // mutations
-const mutations = {
-}
+const mutations = {};
 
 // actions
-const actions = {
-}
+const actions = {};
 
 export default {
   namespaced: true,
   state,
   getters,
   actions,
-  mutations
-}
+  mutations,
+};

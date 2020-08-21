@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Shopping Cart -->
     <Header />
     <section class="cart-section section-b-space">
       <div class="container">

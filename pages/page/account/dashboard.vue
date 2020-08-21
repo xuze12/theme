@@ -11,16 +11,9 @@
                   <div class="dashboard-right">
                     <div class="dashboard">
                       <div class="page-title">
-                        <h2>我的账户</h2>
-                      </div>
-                      <div class="welcome-msg">
-                        <p>你好!</p>
+                        <h2>帐户信息</h2>
                       </div>
                       <div class="box-account box-info">
-                        <div class="box-head">
-                          <h2>帐户信息</h2>
-                        </div>
-
                         <div>
                           <div class="box">
                             <div class="box-title">
@@ -33,8 +26,6 @@
                               <div class="col-sm-6">
                                 <h6>添加账单地址</h6>
                                 <address>
-                                  您尚未添加帐单邮寄地址。
-                                  <br />
                                   <nuxt-link :to="{ path: '/page/account/address' }">
                                     <a>添加地址</a>
                                   </nuxt-link>
@@ -44,7 +35,6 @@
                               <div class="col-sm-6">
                                 <h6>管理送货地址</h6>
                                 <address>
-                                  <br />
                                   <nuxt-link :to="{ path: '/page/account/addressList' }">
                                     <a>管理地址</a>
                                   </nuxt-link>
@@ -66,14 +56,7 @@
                       <div class="page-title">
                         <h2>我的订单</h2>
                       </div>
-                      <div class="welcome-msg">
-                        <p>您好, MARK JECNO !</p>
-                        <p>从您的订单中，您可以查看所有订单和订单状态。</p>
-                      </div>
                       <div class="box-account box-info">
-                        <div class="box-head">
-                          <h2>订单信息</h2>
-                        </div>
                         <div>
                           <div class="box">
                             <div class="box-title mb-3">
@@ -210,12 +193,7 @@
       };
 
       return {
-        show: true,
-        count: "",
-        timer: null,
-        loading: false,
         ruleForm: {},
-        userData: {},
         rules: {
           oldPsd: [{
             required: true,
@@ -237,44 +215,22 @@
       };
     },
     mounted() {
-      (console.log('=============userPassword'))
+
     },
     methods: {
       ...mapActions(['userPassword']),
-      getCode() {
 
-        if (!this.ruleForm.oldPsd == "") {
-          const TIME_COUNT = 5;
-          if (!this.timer) {
-            this.count = TIME_COUNT;
-            this.show = false;
-            this.timer = setInterval(() => {
-              if (this.count > 0 && this.count <= TIME_COUNT) {
-                this.count--;
-              } else {
-                this.show = true;
-                clearInterval(this.timer);
-                this.timer = null;
-              }
-            }, 1000);
-          }
-
-        } else {
-          this.$refs.ruleForm.validateField("oldPsd")
-
-          console.log("空空如也");
-          return;
-        }
-      },
       onSave() {
-        console.log(this.ruleForm, "-----onSave");
-        if (!this.ruleForm.newPsd == "" && this.ruleForm.checkNewPsd == "") {
-          console.log("空空乳液---onSave");
-
-        } else {
+        const oldPsd = this.ruleForm.oldPsd;
+        const newPsd = this.ruleForm.newPsd;
+        const checkNewPsd = this.ruleForm.checkNewPsd
+        if (!oldPsd || !newPsd || !checkNewPsd) {
           this.$refs.ruleForm.validateField("oldPsd")
           this.$refs.ruleForm.validateField("newPsd")
           this.$refs.ruleForm.validateField("checkNewPsd")
+          console.log("空空---onSave");
+          return;
+        } else {
           console.log("提交---onSave");
           this.userPassword(this.ruleForm)
           return;
